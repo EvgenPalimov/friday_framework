@@ -1,4 +1,4 @@
-from friday_fremework.templator import render
+from friday_framework.templator import render
 
 
 class Index:
