@@ -4,12 +4,12 @@ import os
 
 def render(template_name, folder='templates', **kwargs):
     """
-    Функция обрабатывающая шаблоны сайта.
+    A function that processes site templates.
 
-    :param template_name: имя шаблона,
-    :param folder: папка в котором находяться шаблоны,
-    :param kwargs: дополнительные параметры принимаемые функцией,
-    :return: возвращает отрендереный шаблон с параметрами.
+    :param template_name: template name,
+    :param folder: the folder where the templates are located,
+    :param kwargs: additional parameters accepted by the function,
+    :return: returns a rendered template with parameters.
     """
 
     file_path = os.path.join(folder, template_name)

@@ -4,10 +4,10 @@ from views import Index, About
 
 def date_front(request: dict):
     """
-    Функция - передающая текущую дату в request.
+    Function - passing the current date to the request.
 
-    :param request: dict:  принимаем словарь с параметрами или пустой,
-    :return: dict: возвщаем словарь с обновлеными параметрами.
+    :param request: dict: accepts a dictionary with parameters or an empty one,
+    :return: dict: returns a dictionary with updated parameters.
     """
 
     request['data'] = date.today()
@@ -15,10 +15,10 @@ def date_front(request: dict):
 
 def secret_key_front(request: dict):
     """
-    Функция - передающая секретный ключ в request.
+    The function that passes the secret key to the request.
 
-    :param request: dict:  принимаем словарь с параметрами или пустой,
-    :return: dict: возвщаем словарь с обновлеными параметрами.
+    :param request: dict: accepts a dictionary with parameters or an empty one,
+    :return: dict: returns a dictionary with updated parameters.
     """
 
     request['key'] = 'key'
@@ -26,10 +26,10 @@ def secret_key_front(request: dict):
 
 def admin_front(request: dict):
     """
-    Функция - передающая данные администратора в request.
+    Function - transmitting administrator data to request.
 
-    :param request: dict:  принимаем словарь с параметрами или пустой,
-    :return: dict: возвщаем словарь с обновлеными параметрами.
+    :param request: dict: accepts a dictionary with parameters or an empty one,
+    :return: dict: returns a dictionary with updated parameters.
     """
 
     request['admin'] = {
