@@ -57,9 +57,7 @@ class PostRequests(ParseInputData):
         """
 
         content_length_data = env.get('CONTENT_LENGTH')
-        print(f'Length - {type(content_length_data)}.')
         content_length = int(content_length_data) if content_length_data else 0
-        print(content_length)
         data = env['wsgi.input'].read(content_length) \
             if content_length > 0 else b''
         return data
@@ -79,7 +77,6 @@ class PostRequests(ParseInputData):
         result = {}
         if data:
             data_str = data.decode(encoding='utf-8')
-            print(f'The string after the decode - {data_str}.')
             result = ParseInputData.parse(data_str)
         return result
 

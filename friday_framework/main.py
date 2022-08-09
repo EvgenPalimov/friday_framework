@@ -1,5 +1,3 @@
-import quopri
-
 from friday_framework.requests import PostRequests, GetRequests
 
 
@@ -29,8 +27,7 @@ class Framework:
         if method == 'POST':
             data = PostRequests().get_request_params(environ)
             request['data'] = data
-            print(f'We received a post request: '
-                  f'{Framework.decode_value(data)}.')
+            print(f'We received a post request: {data}.')
         if method == 'GET':
             request_params = GetRequests().get_request_params(environ)
             request['request_params'] = request_params
@@ -48,11 +45,3 @@ class Framework:
         start_response(code, [('Content-Type', 'text/html')])
         return [body.encode('utf-8')]
 
-    @staticmethod
-    def decode_value(data):
-        new_data = {}
-        for k, v in data.items():
-            val = bytes(v.replace('%', '=').replace("+", " "), 'UTF-8')
-            val_decode_str = quopri.decodestring(val).decode('UTF-8')
-            new_data[k] = val_decode_str
-        return new_data
