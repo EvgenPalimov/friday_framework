@@ -1,11 +1,11 @@
 class PageNotFound404:
-    """Класс PageNotFound404 - информирует, что такая страница не найдена."""
+    """Page Not Found 404 class informs that such a page has not been found."""
     def __call__(self, request):
         return '404 WHAT', '404 Page Not Found'
 
 
 class Framework:
-    """Класс Framework - основа фреймворка."""
+    """The Framework class is the basis of the framework."""
 
     def __init__(self, routes_obj, fronts_obj):
         self.routes_lst = routes_obj
