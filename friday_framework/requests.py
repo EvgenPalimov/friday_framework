@@ -1,3 +1,6 @@
+import urllib.parse
+
+
 class ParseInputData:
     """
     The class - parses the request url parameters into a key and a value.
@@ -13,7 +16,8 @@ class ParseInputData:
         """
         result = {}
         if data:
-            params = data.split('&')
+            data_decode = urllib.parse.unquote(data)
+            params = data_decode.split('&')
             for item in params:
                 k, v = item.split('=')
                 result[k] = v

@@ -1,5 +1,3 @@
-import urllib.parse
-
 from friday_framework.requests import PostRequests, GetRequests
 
 
@@ -28,7 +26,7 @@ class Framework:
 
         if method == 'POST':
             data = PostRequests().get_request_params(environ)
-            request['data'] = urllib.parse.unquote(data)
+            request['data'] = data
         if method == 'GET':
             request_params = GetRequests().get_request_params(environ)
             request['request_params'] = request_params
