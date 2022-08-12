@@ -8,6 +8,14 @@ class Index:
         return '200 OK', render('index.html', data=request.get('data', None))
 
 
+class Contacts:
+    """Contacts class - the main page of the site."""
+
+    def __call__(self, request):
+        return '200 OK', render('contacts.html',
+                                data=request.get('data', None))
+
+
 class Product:
     """Product class - a page displaying information about the course."""
 
