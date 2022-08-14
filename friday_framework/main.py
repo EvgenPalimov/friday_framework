@@ -17,6 +17,9 @@ class Framework:
     def __call__(self, environ, start_response):
         path = environ['PATH_INFO']
 
+        if not path.endswith('/'):
+            path = f'{path}/'
+
         request = {}
         method = environ['REQUEST_METHOD']
         request['method'] = method
