@@ -34,7 +34,8 @@ class About:
     """About class - a page about the company."""
 
     def __call__(self, request):
-        return '200 OK', 'About'
+        return '200 OK', render('about.html',
+                                data=request.get('data', None))
 
 
 class NotFound404:
