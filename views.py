@@ -18,7 +18,7 @@ class StudyPrograms:
     """StudyPrograms class - the main page of the site."""
 
     def __call__(self, request):
-        return '200 OK', render('study-programs.html', data=date.today())
+        return '200 OK', render('study-programs.html', date=date.today())
 
 
 class Contacts:
