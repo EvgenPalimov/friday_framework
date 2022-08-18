@@ -100,7 +100,7 @@ class CreateCategory:
     def __call__(self, request):
         if request['method'] == 'POST':
             print(request)
-            data = request['data']
+            data = request['result']
             name = data['name']
             name = site.decode_value(name)
 

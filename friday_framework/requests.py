@@ -21,7 +21,6 @@ class ParseInputData:
             for item in params:
                 k, v = item.split('=')
                 result[k] = v
-                print(result)
         return result
 
 
