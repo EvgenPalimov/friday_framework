@@ -1,5 +1,6 @@
 from datetime import date
-from views import Index, About, Product, User, Contacts
+from views import Index, About, Contacts, StudyPrograms, CoursesList, \
+    CreateCourse, CreateCategory, CategoryList, CopyCourse
 
 
 def date_front(request: dict):
@@ -43,7 +44,11 @@ fronts = [date_front, secret_key_front, admin_front]
 routes = {
     '/': Index(),
     '/about/': About(),
-    '/product/': Product(),
-    '/user/': User(),
+    '/study_programs/': StudyPrograms(),
+    '/courses-list/': CoursesList(),
+    '/create-course/': CreateCourse(),
+    '/create-category/': CreateCategory(),
+    '/category-list/': CategoryList(),
+    '/copy-course/': CopyCourse(),
     '/contacts/': Contacts()
 }
