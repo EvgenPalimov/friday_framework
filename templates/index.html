@@ -10,8 +10,13 @@
 {% endblock %}
 {% block body %}
 	<div>
-		<a href="/create-category/">Создать новую категорию</a>
-		<a href="/create-course/?id={{id}}">Создать новый курс</a>
+		<h1>Создание категории</h1>
+		<form method="post">
+        	<label>
+            	<input type="text" name="name" placeholder="Название">
+        	</label>
+        	<button type="submit">Сохранить </button>
+		</form>
 	</div>
 	<div>
 		<h1>Список существующих категорий</h1>
