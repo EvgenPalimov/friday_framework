@@ -1,7 +1,7 @@
 from datetime import date
 
 from friday_framework.templator import render
-from patterns.ñreational_patterns import Engine, Logger
+from patterns.patterns import Engine, Logger
 
 site = Engine()
 logger = Logger('main')
