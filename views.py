@@ -11,7 +11,7 @@ class Index:
     """Index class - the main page of the site."""
 
     def __call__(self, request):
-        return '200 OK', render('index.html', data=request.get('data', None))
+        return '200 OK', render('index.html', objects_list=site.categories)
 
 
 class StudyPrograms:
@@ -100,7 +100,7 @@ class CreateCategory:
     def __call__(self, request):
         if request['method'] == 'POST':
             print(request)
-            data = request['result']
+            data = request['data']
             name = data['name']
             name = site.decode_value(name)
 
