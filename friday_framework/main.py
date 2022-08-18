@@ -28,7 +28,6 @@ class Framework:
             data = PostRequests().get_request_params(environ)
             request['data'] = data
             # print(f'We received a post request: {data}.')
-            print(request['data'])
         if method == 'GET':
             request_params = GetRequests().get_request_params(environ)
             request['request_params'] = request_params

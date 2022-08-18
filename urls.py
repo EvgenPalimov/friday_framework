@@ -11,7 +11,7 @@ def date_front(request: dict):
     :return: dict: returns a dictionary with updated parameters.
     """
 
-    request['data'] = date.today()
+    request['date'] = date.today()
 
 
 def secret_key_front(request: dict):

@@ -18,7 +18,7 @@ class StudyPrograms:
     """StudyPrograms class - the main page of the site."""
 
     def __call__(self, request):
-        return '200 OK', render('study-programs.html')
+        return '200 OK', render('study-programs.html', date=date.today())
 
 
 class Contacts:
@@ -101,7 +101,6 @@ class CreateCategory:
         if request['method'] == 'POST':
             print(request)
             data = request['data']
-            print('data1', request['data'])
             name = data['name']
             name = site.decode_value(name)
 
