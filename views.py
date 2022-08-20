@@ -4,7 +4,7 @@ from friday_framework.templator import render
 from patterns.patterns import Engine, Logger
 
 site = Engine()
-logger = Logger('main')
+logger = Logger('views')
 
 
 class Index:
