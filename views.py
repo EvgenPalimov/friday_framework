@@ -1,11 +1,8 @@
-from datetime import date
-
 from components.decorators import AppRoute
 from components.models import Engine, Logger
 from components.test_data import add_test_data_type_course, \
     add_test_data_course
 from friday_framework.templator import render
-
 
 site = Engine()
 logger = Logger('views')
@@ -15,6 +12,7 @@ routes = {}
 add_test_data_type_course(site)
 add_test_data_course(site)
 
+
 @AppRoute(routes=routes, url='/')
 class Index:
     """Index class - the main page of the site."""
@@ -22,6 +20,7 @@ class Index:
     def __call__(self, request):
         logger.log('Login to the main page.')
         return '200 OK', render('schedule.html')
+
 
 @AppRoute(routes=routes, url='/about/')
 class About:
@@ -31,9 +30,11 @@ class About:
         logger.log('Login to the about company page.')
         return '200 OK', render('about.html')
 
+
 @AppRoute(routes=routes, url='/feedback/')
 class Feedback:
     """Feedback class - a page feedback."""
+
     def __call__(self, request):
         Logger.log('Login to the feedback page.')
         return '200 OK', render('feedback.html')
@@ -54,6 +55,7 @@ class CoursesList:
         except KeyError:
             return '200 OK', 'No courses have been added yet.'
 
+
 @AppRoute(routes=routes, url='/category-list/')
 class CategoryList:
     """CategoryList class - list of categories."""
@@ -71,6 +73,7 @@ class TeachersList:
         logger.log('Getting a list of teachers.')
         return '200 OK', render('teachers.html', objects_list=site.teachers)
 
+
 @AppRoute(routes=routes, url='/student-list/')
 class StudentsList:
     """StudentsList class - list of students."""
@@ -78,6 +81,7 @@ class StudentsList:
     def __call__(self, request):
         logger.log('Getting a list of students.')
         return '200 OK', render('teachers.html', objects_list=site.students)
+
 
 @AppRoute(routes=routes, url='/type-course-list/')
 class TypeCourses:
@@ -120,6 +124,7 @@ class TypeCourses:
             logger.log('List of Training types.')
             return '200 OK', render('type_courses.html',
                                     objects_list=site.type_courses)
+
 
 @AppRoute(routes=routes, url='/course-list/')
 def __call__(self, request):
@@ -165,5 +170,3 @@ def __call__(self, request):
         return '200 OK', render('courses.html',
                                 objects_list=site.courses,
                                 objects_list_type_course=site.type_courses)
-
-

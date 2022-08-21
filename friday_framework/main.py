@@ -1,11 +1,14 @@
 import quopri
 from os import path
 
+from components.content_types import CONTENT_TYPES_MAP
 from friday_framework.requests import PostRequests, GetRequests
+from views import logger
 
 
 class PageNotFound404:
     """Page Not Found 404 class informs that such a page has not been found."""
+
     def __call__(self, request):
         return '404 WHAT', '404 Page Not Found'
 
@@ -89,7 +92,7 @@ class Framework:
     def decode_value(data):
         new_data = {}
         for k, v in data.items():
-            #Обрабатываем списки пока
+            # Обрабатываем списки пока
             if type(v) == list:
                 val = ','.join(v)
             else:
@@ -97,4 +100,3 @@ class Framework:
             val_decode_str = quopri.decodestring(val).decode('UTF-8')
             new_data[k] = val_decode_str
         return new_data
-
