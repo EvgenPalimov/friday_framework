@@ -72,7 +72,7 @@ class Framework:
     @staticmethod
     def add_logger(method, data):
         logger.log(
-            f'Нам пришёл {method}-запрос: {Framework.decode_value(data)}')
+            f'He came to us {method}- request: {Framework.decode_value(data)}')
 
     @staticmethod
     def get_content_type(file_path, content_types_map=CONTENT_TYPES_MAP):

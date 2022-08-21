@@ -1,8 +1,8 @@
 from components.settings import PORT, URL_ADDRESS
 from friday_framework.main import Framework
-from urls import routes
 from wsgiref.simple_server import make_server
 from components import settings
+from views import routes
 
 application = Framework(settings, routes)
 
