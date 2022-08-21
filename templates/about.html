@@ -1,13 +1,16 @@
-﻿{% extends "base.html" %}
-{% block title %}
-О нас
-{% endblock %}
-{% block style %}
-	{% include "inc-style.html" %}
-{% endblock %}
-{% block menu %}
-	{% include "inc-menu.html" %}
-{% endblock %}
-{% block body %}
-	Тут что-то будет
+{% extends "base.html" %}
+
+{% block main_block %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <h1> Логотип</h1>
+                <img width="500px" src="{{ static }}images/friday.gif" alt="">
+            </div>
+            <div class="col-6">
+                <h1> О компании</h1>
+                <h2 style="color: red">Описание в разработке</h2>
+            </div>
+        </div>
+    </div>
 {% endblock %}
