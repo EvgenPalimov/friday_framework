@@ -137,7 +137,7 @@ class Engine:
         :return: returns an updated list of course types.
         """
 
-        for item, in self.type_courses:
+        for item in self.type_courses:
             if item.id == id:
                 self.type_courses.pop(id)
                 return self.type_courses
@@ -183,6 +183,14 @@ class Engine:
             if item.id == id:
                 return item
         raise Exception(f'There is no course type with id = {id}.')
+
+    def type_course_create(self, name):
+        """A function that starts the creation of a type course.
+
+        :param name: str: name of type course.
+        """
+
+        return CourseType(name)
 
     def create_course(self, name, type_):
         """
