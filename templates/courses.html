@@ -77,8 +77,10 @@
                                         {% endfor %}
                                     </td>
                                     <td>
-                                        <form action="#" method="post">
-                                            <input class="btn btn-danger btn-block" type="submit" value="Не работает">
+                                        <form action="/course-list/" method="post">
+                                            <input type="hidden" name="method" value="copy">
+                                            <input type="hidden" name="id" value="{{ course.id }}">
+                                            <input class="btn btn-success btn-block" type="submit" value="Копировать">
                                         </form>
                                     </td>
 

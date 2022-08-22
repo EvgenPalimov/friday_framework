@@ -202,6 +202,20 @@ class Engine:
 
         return Course(name, type_)
 
+    def copy_course(self, id):
+        """
+        The function of copy a course by id.
+
+        :param id: id of course,
+        """
+
+        for item in self.courses:
+            if item.id == id:
+                new_name = f'Copy_{item.name}.'
+                new_type = item.type
+                return Course(new_name, new_type)
+        raise Exception(f'There is no course with id = {id}.')
+
     def delete_course(self, id):
         """
         The function of deleting a course by id.

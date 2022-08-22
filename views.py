@@ -133,8 +133,8 @@ class Courses:
             for i in type_course:
                 list_type_course.append(site.find_type_course_by_id(int(i)))
             name = site.decode_value(name)
-            new_type = site.create_course(name, list_type_course)
-            site.courses.append(new_type)
+            new_course = site.create_course(name, list_type_course)
+            site.courses.append(new_course)
             return '200 OK', render('courses.html',
                                     objects_list=site.courses,
                                     objects_list_type_course=site.type_courses)
@@ -161,6 +161,16 @@ class Courses:
         #     return '200 OK', render('include/update_course_type.html',
         #                             id=result.id,
         #                                name=result.name)
+
+        elif method == 'COPY':
+            logger.log('')
+            id = int(request['data']['id'])
+            new_course = site.copy_course(id)
+            site.courses.append(new_course)
+            return '200 OK', render('courses.html',
+                                    objects_list=site.courses)
+
+
         elif method == 'GET':
             logger.log('List of courses.')
             return '200 OK', render('courses.html',
@@ -182,7 +192,7 @@ class CreateCourse:
             category = None
             if self.category_id != -1:
                 category = site.find_category_by_id(int(self.category_id))
-                course = site.create_course('record', name, category)
+                course = site.create_course(name, category)
                 site.courses.append(course)
 
             return '200 OK', render('course_list.html',
