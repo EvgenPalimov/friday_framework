@@ -89,7 +89,7 @@ class TypeCourses:
             data = request['data']
             name = site.decode_value(data['name'])
 
-            new_type = site.type_courses(name)
+            new_type = site.type_course_create(name)
             site.type_courses.append(new_type)
             return '200 OK', render('type_courses.html',
                                     objects_list=site.type_courses)
