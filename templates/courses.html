@@ -38,6 +38,9 @@
                     </div>
                 </div>
             </div>
+
+             {% include 'include/update_course.html' %}
+
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
@@ -85,9 +88,15 @@
                                     </td>
 
                                     <td>
-                                        <form action="">
-                                            <input class="btn btn-success btn-block" type="submit" value="Не работает">
-                                        </form>
+
+                                        <button type="button" class="btn btn-success btn-block" value="{{ course.id }}">
+{#                                                type="button" class="btn btn-success" data-toggle="modal"#}
+{#                                                data-target="#course_update">#}
+                                            Изменить
+                                        </button>
+                                        {# <form action="/course-list/">#}
+                                        {# <input class="btn btn-success btn-block" type="submit" value="Изменить">#}
+                                        {# </form>#}
                                     </td>
                                     <td>
                                         <form action="/course-list/" method="post">

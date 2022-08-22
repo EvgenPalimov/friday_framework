@@ -216,6 +216,23 @@ class Engine:
                 return Course(new_name, new_type)
         raise Exception(f'There is no course with id = {id}.')
 
+    def course_update(self, id, name, type_):
+        """
+        Updating course  data.
+
+        :param id: id of type course,
+        :name: str: new name of type course,
+        :type_: str: new type of course,
+        :return: returns an updated list of course types.
+        """
+
+        for item in self.courses:
+            if item.id == id:
+                item.name = name
+                item.type = type_
+                return self.courses
+        raise Exception(f'There is no course with id = {id}.')
+
     def delete_course(self, id):
         """
         The function of deleting a course by id.

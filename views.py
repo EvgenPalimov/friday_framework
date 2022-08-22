@@ -146,13 +146,14 @@ class Courses:
             return '200 OK', render('courses.html',
                                     objects_list=result)
 
-        # elif method == 'UPDATE':
-        #     logger.log('Обновление обучения')
-        #     id = int(request['data']['id'])
-        #     name = request['data']['name']
-        #     result = site.type_course_update(id,name)
-        #     return '200 OK', render('type_courses.html',
-        #                             objects_list=result)
+        elif method == 'UPDATE':
+            logger.log('Updating Training')
+            id = int(request['data']['id'])
+            name = request['data']['name']
+            type = request['data']['type']
+            result = site.course_update(id,name, type)
+            return '200 OK', render('type_courses.html',
+                                    objects_list=result)
         #
         # elif method == 'DETAIL':
         #     logger.log('Детализация  обучения')
