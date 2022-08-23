@@ -241,6 +241,7 @@ class Engine:
 
         for item in self.courses:
             if item.id == id:
+                item.id = id
                 item.name = name
                 item.type = type_
                 return self.courses
