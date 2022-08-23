@@ -185,6 +185,7 @@ class Courses:
 
         elif method == 'GET':
             logger.log('List of courses.')
+            logger.log(site.courses)
             return '200 OK', render('courses.html',
                                     objects_list=site.courses,
                                     objects_list_type_course=site.type_courses)
