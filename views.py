@@ -6,7 +6,6 @@ from components.test_data import add_test_data_type_course, \
     add_test_data_course
 from friday_framework.templator import render
 
-
 site = Engine()
 logger = Logger('views')
 routes = {}
@@ -14,6 +13,7 @@ routes = {}
 # Test data.
 add_test_data_type_course(site)
 add_test_data_course(site)
+
 
 @AppRoute(routes=routes, url='/')
 class Index:
@@ -23,6 +23,7 @@ class Index:
         logger.log('Login to the main page.')
         return '200 OK', render('schedule.html')
 
+
 @AppRoute(routes=routes, url='/about/')
 class About:
     """About class - a page about the company."""
@@ -31,9 +32,11 @@ class About:
         logger.log('Login to the about company page.')
         return '200 OK', render('about.html')
 
+
 @AppRoute(routes=routes, url='/feedback/')
 class Feedback:
     """Feedback class - a page feedback."""
+
     def __call__(self, request):
         Logger.log('Login to the feedback page.')
         return '200 OK', render('feedback.html')
@@ -54,6 +57,7 @@ class CoursesList:
         except KeyError:
             return '200 OK', 'No courses have been added yet.'
 
+
 @AppRoute(routes=routes, url='/category-list/')
 class CategoryList:
     """CategoryList class - list of categories."""
@@ -71,6 +75,7 @@ class TeachersList:
         logger.log('Getting a list of teachers.')
         return '200 OK', render('teachers.html', objects_list=site.teachers)
 
+
 @AppRoute(routes=routes, url='/student-list/')
 class StudentsList:
     """StudentsList class - list of students."""
@@ -78,6 +83,7 @@ class StudentsList:
     def __call__(self, request):
         logger.log('Getting a list of students.')
         return '200 OK', render('teachers.html', objects_list=site.students)
+
 
 @AppRoute(routes=routes, url='/type-course-list/')
 class TypeCourses:
@@ -121,6 +127,7 @@ class TypeCourses:
             logger.log('List of Training types.')
             return '200 OK', render('type_courses.html',
                                     objects_list=site.type_courses)
+
 
 @AppRoute(routes=routes, url='/course-list/')
 class Courses:
@@ -168,14 +175,6 @@ class Courses:
             result = site.course_update(id, name, list_type_course)
             return '200 OK', render('courses.html',
                                     objects_list=result)
-        #
-        # elif method == 'DETAIL':
-        #     logger.log('Детализация  обучения')
-        #     id = int(request['data']['id'])
-        #     result = site.type_course_detail(id)
-        #     return '200 OK', render('include/update_course_type.html',
-        #                             id=result.id,
-        #                                name=result.name)
 
         elif method == 'COPY':
             logger.log('')
@@ -225,53 +224,3 @@ class CreateCourse:
                                         id=category.id)
             except KeyError:
                 return '200 OK', 'No categories have been added yet.'
-
-
-class CreateCategory:
-    """Controller class - creating category."""
-
-    def __call__(self, request):
-        if request['method'] == 'POST':
-            print(request)
-            data = request['data']
-            name = data['name']
-            name = site.decode_value(name)
-
-            category_id = data.get('category_id')
-
-            category = None
-            if category_id:
-                category = site.find_category_by_id(int(category_id))
-
-            new_category = site.create_category(name, category)
-
-            site.categories.append(new_category)
-            return '200 OK', render('index.html', objects_list=site.categories)
-        else:
-            categories = site.categories
-            return '200 OK', render('create_category.html',
-                                    categories=categories)
-
-
-
-
-
-class CopyCourse:
-    """Controller class - create new course."""
-
-    def __call__(self, request):
-        request_params = request['request_params']
-
-        try:
-            name = request_params['name']
-            old_course = site.get_course(name)
-            if old_course:
-                new_name = f'Copy_{name}.'
-                new_course = old_course.clone()
-                new_course.name = new_name
-                site.courses.append(new_course)
-
-            return '200 OK', render('course_list.html',
-                                    objects_list=site.courses)
-        except KeyError:
-            return '200 OK', 'No courses have been added yet.'

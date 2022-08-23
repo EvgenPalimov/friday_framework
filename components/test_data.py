@@ -1,5 +1,5 @@
 def add_test_data_type_course(site):
-    type_data = ['Онлайн','Офлайн','test']
+    type_data = ['Онлайн','Вебинарный','Видео-курс']
     for i in type_data:
         name = site.decode_value(i)
         new_type = site.type_course(name)
@@ -8,14 +8,14 @@ def add_test_data_type_course(site):
 
 def add_test_data_course(site):
     online = '0'
-    off_online = '1'
-    test = '2'
+    vebinar = '1'
+    video = '2'
 
     dict_course = {
-        'Python': [online, off_online,test],
-        'Java': [online, ],
-        'JavaScript': [off_online],
-        'C': [online, ]
+        'Python': [online, vebinar, video],
+        'Java': [online],
+        'JavaScript': [vebinar],
+        'C': [online]
     }
 
     list_course = ['Python','Java','JavaScript','C']
