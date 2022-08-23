@@ -26,7 +26,7 @@
                                 {# class="form-control"  id="example-getting-started" size="5" multiple> #}
                                 {% for type_course in objects_list_type_course %}
                                     <option value="{{ type_course.id }}">{{ type_course.name }}</option>
-                                    {# <option selected value="{{ type }}">{{ type }}</option> #}
+                                    {# <option selected value="{{ type_course.id }}">{{ type_course.name }}</option> #}
                                 {% endfor %}
                             </select>
                         </div>
