@@ -139,6 +139,15 @@ class Courses:
                                     objects_list=site.courses,
                                     objects_list_type_course=site.type_courses)
 
+        elif method == 'DETAIL':
+            logger.log('Detail Training.')
+            id = int(request['data']['id'])
+            result = site.course_detail(id)
+            return '200 OK', render('include/update_course.html',
+                                    id=result.id,
+                                    name=result.name,
+                                    type=result.type)
+
         elif method == 'DELETE':
             logger.log('Deleting Training.')
             id = int(request['data']['id'])

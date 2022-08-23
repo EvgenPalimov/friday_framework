@@ -216,6 +216,19 @@ class Engine:
                 return Course(new_name, new_type)
         raise Exception(f'There is no course with id = {id}.')
 
+    def course_detail(self, id):
+        """
+        Detailing the course.
+
+        :param id: id course,
+        :return: returns the course object.
+        """
+
+        for item in self.courses:
+            if item.id == id:
+                return item
+        raise Exception(f'There is no course with id = {id}.')
+
     def course_update(self, id, name, type_):
         """
         Updating course  data.
