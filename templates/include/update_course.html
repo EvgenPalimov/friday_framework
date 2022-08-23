@@ -23,7 +23,7 @@
                             <input type="text" name="name" class="form-control" id="name" value="{{ name }}"
                                    placeholder="Name">
                             <select name="type_course" class="form-control" multiple="multiple">
-                                {# class="form-control"  id="example-getting-started1" size="5" multiple> #}
+                                {# class="form-control"  id="example-update-start" size="5" multiple> #}
                                 {% for type_course in type_courses %}
                                     <option value="{{ type_course.id }}">{{ type_course.name }}</option>
                                     {# <option selected value="{{ type_course.id }}">{{ type_course.name  }}</option> #}

@@ -1,5 +1,6 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
     $('#dataTable').DataTable();
-     $('#example-getting-started').multiselect();
+     $('#example-create-start').multiselect();
+      $('#example-update-start').multiselect();
 });
