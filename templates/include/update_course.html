@@ -25,7 +25,7 @@
                             <select name="type_course" class="form-control" multiple="multiple">
                                 {# class="form-control"  id="example-getting-started" size="5" multiple> #}
                                 {% for type_course in type_courses %}
-                                    <option value="{{ type }}">{{ type_course.name }}</option>
+                                    <option value="{{ type_course.id }}">{{ type_course.name }}</option>
                                     {# <option selected value="{{ type }}">{{ type_course.name }}</option> #}
                                 {% endfor %}
                             </select>
