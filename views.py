@@ -105,6 +105,7 @@ class TypeCourses:
             logger.log('Update Training types.')
             id = int(request['data']['id'])
             name = request['data']['name']
+            print(id, name)
             result = site.type_course_update(id, name)
             return '200 OK', render('type_courses.html',
                                     objects_list=result)

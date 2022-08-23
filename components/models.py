@@ -164,7 +164,7 @@ class Engine:
         :name: str: new name of type course,
         :return: returns an updated list of course types.
         """
-
+        print(f'item{id}, {name}')
         for item in self.type_courses:
             if item.id == id:
                 item.name = name
