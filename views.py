@@ -161,8 +161,11 @@ class Courses:
             logger.log('Updating Training')
             id = int(request['data']['id'])
             name = request['data']['name']
-            type = request['data']['type_course']
-            result = site.course_update(id,name, type)
+            type_course = request['data']['type_course']
+            list_type_course = []
+            for i in type_course:
+                list_type_course.append(site.find_type_course_by_id(int(i)))
+            result = site.course_update(id, name, list_type_course)
             return '200 OK', render('courses.html',
                                     objects_list=result)
         #
