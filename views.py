@@ -147,8 +147,7 @@ class Courses:
             return '200 OK', render('include/update_course.html',
                                     id=result.id,
                                     name=result.name,
-                                    type=result.type,
-                                    type_courses=site.type_courses)
+                                    type=result.type)
 
         elif method == 'DELETE':
             logger.log('Deleting Training.')
