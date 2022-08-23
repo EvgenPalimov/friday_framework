@@ -24,7 +24,7 @@
                                    placeholder="Name">
                             <select name="type_course" class="form-control" multiple="multiple">
                                 {# class="form-control"  id="example-update-start" size="5" multiple> #}
-                                {% for type_course in type_courses %}
+                                {% for type_course in objects_list_type_course %}
                                     <option value="{{ type_course.id }}">{{ type_course.name }}</option>
                                     {# <option selected value="{{ type_course.id }}">{{ type_course.name  }}</option> #}
                                 {% endfor %}

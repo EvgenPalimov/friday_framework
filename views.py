@@ -148,7 +148,7 @@ class Courses:
                                     id=result.id,
                                     name=result.name,
                                     type=result.type,
-                                    type_courses=site.type_courses)
+                                    objects_list_type_course=site.type_courses)
 
         elif method == 'DELETE':
             logger.log('Deleting Training.')
