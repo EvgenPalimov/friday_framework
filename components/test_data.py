@@ -7,9 +7,9 @@ def add_test_data_type_course(site):
 
 
 def add_test_data_course(site):
-    online = 0
-    off_online = 1
-    test = 2
+    online = '0'
+    off_online = '1'
+    test = '2'
 
     dict_course = {
         'Python': [online, off_online,test],

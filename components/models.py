@@ -242,7 +242,7 @@ class Engine:
         for item in self.courses:
             if item.id == id:
                 item.name = name
-                item.type = int(type_)
+                item.type = type_
                 return self.courses
         raise Exception(f'There is no course with id = {id}.')
 
