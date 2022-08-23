@@ -34,7 +34,7 @@
                                         {# class="form-control"  id="example-create-start" size="5" multiple> #}
                                         {% for course in objects_list_courses %}
                                             <option value="{{ course.id }}">{{ course.name }}</option>
-                                                {# <option selected value="{{ course.id }}">{{ course.name  }}</option> #}
+
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -78,9 +78,9 @@
                                 <td>{{ category.id }}</td>
                                 <td>{{ category.name }}</td>
                                 <td>
-                                        {% for i in category.courses %}
-                                                {{ i }}
-                                        {% endfor %}
+                                    {% for i in category.courses %}
+                                            {{ i }}
+                                    {% endfor %}
                                 </td>
 <!--                                <td>{{ category.teachers }}</td>-->
 
