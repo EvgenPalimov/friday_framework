@@ -161,9 +161,9 @@ class Courses:
             logger.log('Updating Training')
             id = int(request['data']['id'])
             name = request['data']['name']
-            type = request['data']['type']
+            type = request['data']['type_course']
             result = site.course_update(id,name, type)
-            return '200 OK', render('type_courses.html',
+            return '200 OK', render('courses.html',
                                     objects_list=result)
         #
         # elif method == 'DETAIL':
