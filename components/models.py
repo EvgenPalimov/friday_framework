@@ -87,25 +87,12 @@ class Category:
 
     auto_id = 0
 
-    def __init__(self, name, category):
+    def __init__(self, name, courses):
+        self.name = name
+        self.courses = courses
+        self.teachers = []
         self.id = Category.auto_id
         Category.auto_id += 1
-        self.name = name
-        self.category = category
-        self.courses = []
-        self.teachers = []
-
-    def course_count(self):
-        """
-        The function counts the total number of courses.
-
-        :return: int: returns an update of the number of courses.
-        """
-
-        result = len(self.courses)
-        if self.category:
-            result += self.category.course_count()
-        return result
 
 
 class Engine:
@@ -180,6 +167,19 @@ class Engine:
         """
 
         for item in self.type_courses:
+            if item.id == id:
+                return item
+        raise Exception(f'There is no course type with id = {id}.')
+
+    def find_course_by_id(self, id):
+        """
+        Search for a certain course by id.
+
+        :param id: id course,
+        :return: returns the course object.
+        """
+
+        for item in self.courses:
             if item.id == id:
                 return item
         raise Exception(f'There is no course type with id = {id}.')
@@ -271,10 +271,10 @@ class Engine:
         return UserFactory.create(type_)
 
     @staticmethod
-    def create_category(name, category=None):
+    def create_category(name, courses=list):
         """A function that starts the creation of a category."""
 
-        return Category(name, category)
+        return Category(name, courses)
 
     def find_category_by_id(self, id):
         """

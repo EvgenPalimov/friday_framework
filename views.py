@@ -1,9 +1,7 @@
-from datetime import date
-
 from components.decorators import AppRoute
 from components.models import Engine, Logger
 from components.test_data import add_test_data_type_course, \
-    add_test_data_course
+    add_test_data_course, add_test_data_category
 from friday_framework.templator import render
 
 site = Engine()
@@ -13,6 +11,7 @@ routes = {}
 # Test data.
 add_test_data_type_course(site)
 add_test_data_course(site)
+add_test_data_category(site)
 
 
 @AppRoute(routes=routes, url='/')
@@ -56,15 +55,6 @@ class CoursesList:
                                     id=category.id)
         except KeyError:
             return '200 OK', 'No courses have been added yet.'
-
-
-@AppRoute(routes=routes, url='/category-list/')
-class CategoryList:
-    """CategoryList class - list of categories."""
-
-    def __call__(self, request):
-        logger.log('List of categories.')
-        return '200 OK', render('category.html', objects_list=site.categories)
 
 
 @AppRoute(routes=routes, url='/teacher-list/')
@@ -180,7 +170,7 @@ class Courses:
                                     objects_list=result)
 
         elif method == 'COPY':
-            logger.log('')
+            logger.log('Copy Training')
             id = int(request['data']['id'])
             new_course = site.copy_course(id)
             site.courses.append(new_course)
@@ -193,3 +183,30 @@ class Courses:
             return '200 OK', render('courses.html',
                                     objects_list=site.courses,
                                     objects_list_type_course=site.type_courses)
+
+
+@AppRoute(routes=routes, url='/category-list/')
+class Category:
+    """Courses class - CRUD class is course."""
+
+    def __call__(self, request):
+        method = request['method'].upper()
+        if method == 'CREATE':
+            logger.log('Creating Category.')
+            name = request['data']['name']
+            courses = request['data']['courses']
+            list_courses = []
+            for i in courses:
+                course = site.find_course_by_id(int(i))
+                list_courses.append(course.name)
+            name = site.decode_value(name)
+            new_category = site.create_category(name, list_courses)
+            site.categories.append(new_category)
+            return '200 OK', render('category.html',
+                                    objects_list=site.categories)
+
+        elif method == 'GET':
+            logger.log('List of categories.')
+            return '200 OK', render('category.html',
+                                    objects_list=site.categories,
+                                    objects_list_courses=site.courses)

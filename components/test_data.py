@@ -28,5 +28,13 @@ def add_test_data_course(site):
         new_course = site.create_course(i,list_type)
         site.courses.append(new_course)
 
+def add_test_data_category(site):
+
+    list_course = ['Python', 'Java', 'JavaScript', 'C']
+    name_category = 'programing'
+    new_category = site.create_category(name_category, list_course)
+    site.categories.append(new_category)
+
+
 
 
