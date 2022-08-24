@@ -1,33 +1,32 @@
-<div class="update_course">
-{#    <button type="button" id="course_create" class="btn btn-success" data-toggle="modal" data-target="#course_create">#}
-{#        Добавить курc#}
-{#    </button>#}
+<div class="update_category">
+{# <button type="button" id="category_create" class="btn btn-success" data-toggle="modal" data-target="#category_create"> #}
+    {# Добавить категорию#}
+{# </button> #}
 
-     <input type="hidden" id="course_update_id" class="btn btn-success" data-toggle="modal" data-target="#course_update">
-    <div class="modal fade" id="course_update" tabindex="-1" role="dialog"
+    <input type="hidden" id="category_update_id" class="btn btn-success" data-toggle="modal" data-target="#category_update">
+    <div class="modal fade" id="category_update" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Обновить курс</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Обновить категорию</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="/course-list/" method="post">
+                    <form action="/category-list/" method="post">
                         <div class="form-group">
                             <label for="name">Наименование:</label>
                             <input type="hidden" name="id" id="id" value="{{ id }}">
                             <input type="hidden" name="method" value="update">
                             <input type="text" name="name" class="form-control" id="name" value="{{ name }}"
                                    placeholder="Name">
-                            <label for="type_course">Виды обучения:</label>
-                            <select name="type_course" class="form-control" multiple="multiple" id="type_course">
+                            <label for="course">Виды курсов:</label>
+                            <select name="course" class="form-control" multiple="multiple" id="course">
                                 {# class="form-control"  id="example-update-start" size="5" multiple> #}
-                                {% for type_course in objects_list_type_course %}
-                                    <option value="{{ type_course.id }}">{{ type_course.name }}</option>
-                                    {# <option selected value="{{ type }}">{{ name  }}</option> #}
+                                {% for course in objects_list_courses %}
+                                    <option value="{{ course.id }}">{{ course.name }}</option>
                                 {% endfor %}
                             </select>
                         </div>

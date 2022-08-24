@@ -17,8 +17,8 @@ class Framework:
     """The Framework class is the basis of the framework."""
 
     def __init__(self, settings, routes_obj):
-        self.routes_lst = routes_obj
         self.settings = settings
+        self.routes_lst = routes_obj
 
     def __call__(self, environ, start_response):
         path = environ['PATH_INFO']
@@ -100,3 +100,34 @@ class Framework:
             val_decode_str = quopri.decodestring(val).decode('UTF-8')
             new_data[k] = val_decode_str
         return new_data
+
+
+class DebugApplication(Framework):
+    """
+    The logging class - the same as the main one,
+    only outputs information for each request
+    (request type and parameters) to the console.
+    """
+
+    def __init__(self, settings, routes_obj):
+        super().__init__(settings, routes_obj)
+        self.application = Framework(settings, routes_obj)
+
+    def __call__(self, env, start_response):
+        print('Debug mode.')
+        print(env)
+        return self.application(env, start_response)
+
+
+class FakeApplication(Framework):
+    """
+    Fake class - responds to all user requests: 200 OK, Hello from Fake.
+    """
+
+    def __init__(self, settings, routes_obj):
+        super().__init__(settings, routes_obj)
+        self.application = Framework(settings, routes_obj)
+
+    def __call__(self, env, start_response):
+        start_response('200 OK', [('Content-Type', 'text/html')])
+        return [b'Hello from Fake.']

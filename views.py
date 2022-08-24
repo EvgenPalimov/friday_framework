@@ -1,4 +1,4 @@
-from components.decorators import AppRoute
+from components.decorators import AppRoute, Debug
 from components.models import Engine, Logger
 from components.test_data import add_test_data_type_course, \
     add_test_data_course, add_test_data_category
@@ -18,6 +18,7 @@ add_test_data_category(site)
 class Index:
     """Index class - the main page of the site."""
 
+    @Debug(name="Index")
     def __call__(self, request):
         logger.log('Login to the main page.')
         return '200 OK', render('schedule.html')
@@ -27,6 +28,7 @@ class Index:
 class About:
     """About class - a page about the company."""
 
+    @Debug(name="About")
     def __call__(self, request):
         logger.log('Login to the about company page.')
         return '200 OK', render('about.html')
@@ -36,6 +38,7 @@ class About:
 class Feedback:
     """Feedback class - a page feedback."""
 
+    @Debug(name="Feedback")
     def __call__(self, request):
         Logger.log('Login to the feedback page.')
         return '200 OK', render('feedback.html')
@@ -44,6 +47,7 @@ class Feedback:
 class CoursesList:
     """CoursesList class - the main page of the site."""
 
+    @Debug(name="CoursesList")
     def __call__(self, request):
         logger.log('List of courses.')
         try:
@@ -61,6 +65,7 @@ class CoursesList:
 class TeachersList:
     """TeachersList class - list of teachers."""
 
+    @Debug(name="TeachersList")
     def __call__(self, request):
         logger.log('Getting a list of teachers.')
         return '200 OK', render('teachers.html', objects_list=site.teachers)
@@ -70,6 +75,7 @@ class TeachersList:
 class StudentsList:
     """StudentsList class - list of students."""
 
+    @Debug(name="StudentsList")
     def __call__(self, request):
         logger.log('Getting a list of students.')
         return '200 OK', render('teachers.html', objects_list=site.students)
@@ -79,6 +85,7 @@ class StudentsList:
 class TypeCourses:
     """TypeCourses class - CRUD class is type of course."""
 
+    @Debug(name="TypeCoursesList-create-update-delete-detail")
     def __call__(self, request):
         method = request['method'].upper()
         if method == 'CREATE':
@@ -124,6 +131,7 @@ class TypeCourses:
 class Courses:
     """Courses class - CRUD class is course."""
 
+    @Debug(name="CoursesList-create-update-delete-detail")
     def __call__(self, request):
         method = request['method'].upper()
         if method == 'CREATE':
@@ -189,10 +197,11 @@ class Courses:
 class Category:
     """Courses class - CRUD class is course."""
 
+    @Debug(name="CategoryList-create-update-delete-detail")
     def __call__(self, request):
         method = request['method'].upper()
         if method == 'CREATE':
-            logger.log('Creating Category.')
+            logger.log('Creating Categories.')
             name = request['data']['name']
             courses = request['data']['courses']
             list_courses = []
@@ -204,6 +213,35 @@ class Category:
             site.categories.append(new_category)
             return '200 OK', render('category.html',
                                     objects_list=site.categories)
+
+        elif method == 'DETAIL':
+            logger.log('Detail Categories.')
+            id = int(request['data']['id'])
+            result = site.category_detail(id)
+            return '200 OK', render('include/update_category.html',
+                                    id=result.id,
+                                    name=result.name,
+                                    courses=result.courses,
+                                    objects_list_courses=site.courses)
+
+        elif method == 'DELETE':
+            logger.log('Deleting Categories.')
+            id = int(request['data']['id'])
+            result = site.category_delete(id)
+            return '200 OK', render('category.html',
+                                    objects_list=result)
+
+        elif method == 'UPDATE':
+            logger.log('Updating Categories')
+            id = int(request['data']['id'])
+            name = request['data']['name']
+            courses = request['data']['course']
+            list_courses = []
+            for i in courses:
+                list_courses.append(site.find_course_by_id(int(i)))
+            result = site.category_update(id, name, list_courses)
+            return '200 OK', render('category.html',
+                                    objects_list=result)
 
         elif method == 'GET':
             logger.log('List of categories.')

@@ -231,11 +231,11 @@ class Engine:
 
     def course_update(self, id, name, type_):
         """
-        Updating course  data.
+        Updating course data.
 
         :param id: id of type course,
         :name: str: new name of type course,
-        :type_: str: new type of course,
+        :type_: list: new type of course,
         :return: returns an updated list of course types.
         """
 
@@ -260,6 +260,19 @@ class Engine:
                 return self.courses
         raise Exception(f'There is no course with id = {id}.')
 
+    def get_course(self, name):
+        """
+        Getting a course by name.
+
+        :param name: name of course,
+        :return: returns object of course or None.
+        """
+
+        for item in self.courses:
+            if item.name == name:
+                return item
+        return None
+
     @staticmethod
     def create_user(type_):
         """
@@ -271,10 +284,54 @@ class Engine:
         return UserFactory.create(type_)
 
     @staticmethod
-    def create_category(name, courses=list):
+    def create_category(name, courses=None):
         """A function that starts the creation of a category."""
 
         return Category(name, courses)
+
+    def category_detail(self, id):
+        """
+        Detailing the category.
+
+        :param id: id course,
+        :return: returns the category object.
+        """
+
+        for item in self.categories:
+            if item.id == id:
+                return item
+        raise Exception(f'There is no category with id = {id}.')
+
+    def category_update(self, id, name, courses):
+        """
+        Updating category data.
+
+        :param id: id category,
+        :name: str: new name category,
+        :courses: list: new list of courses,
+        :return: returns an updated list of courses.
+        """
+
+        for item in self.categories:
+            if item.id == id:
+                item.name = name
+                item.courses = courses
+                return self.categories
+        raise Exception(f'There is no category with id = {id}.')
+
+    def category_delete(self, id):
+        """
+        The function of deleting a category by id.
+
+        :param id: id category,
+        :return: returns list of categories.
+        """
+
+        for item in self.categories:
+            if item.id == id:
+                self.categories.pop(id)
+                return self.categories
+        raise Exception(f'There is no category with id = {id}.')
 
     def find_category_by_id(self, id):
         """
@@ -290,29 +347,7 @@ class Engine:
                 return item
         raise Exception(f'There is no category with this id: {id}')
 
-    def create_course_with_type(self, type_, name, category):
-        """
-        A function that triggers the creation of a user.
 
-        :param type_: type of course,
-        :param name: name of course,
-        :param category: name of category.
-        """
-
-        return CourseFactory.create(type_, name, category)
-
-    def get_course(self, name):
-        """
-        Getting a course by name.
-
-        :param name: name of course,
-        :return: returns object of course or None.
-        """
-
-        for item in self.courses:
-            if item.name == name:
-                return item
-        return None
 
     @staticmethod
     def decode_value(val):
