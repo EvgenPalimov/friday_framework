@@ -19,12 +19,10 @@ class ParseInputData:
         if data:
             data_decode = urllib.parse.unquote(data)
             params = data_decode.split('&')
-            value = []
             for item in params:
                 k, v = item.split('=')
                 if k in value_to_list:
                     if result.get(k, False):
-                        # append the new number to the existing array at this slot
                         result[k].append(v)
                     else:
                         result[k] = [v]

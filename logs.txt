@@ -800,3 +800,12 @@ List of students.
 He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556'}
 Creating student.
 Login to the main page.
+Login to the main page.
+Login to the main page.
+List of courses.
+List of courses.
+List of Training types.
+List of categories.
+List of categories.
+List of teachers.
+List of students.
