@@ -1,6 +1,6 @@
 from components.decorators import AppRoute, Debug
 from components.models import Engine, Logger
-from components.notification import EmailNotifier, SmsNotifier
+from components.notification import EmailNotifier, SmsNotifier, BaseSerializer
 from components.test_data import start_add_test_data
 from friday_framework.templator import render
 
@@ -113,7 +113,8 @@ class Courses:
             list_type_course = []
             if 'type_course' in request['data']:
                 for i in request['data']['type_course']:
-                    list_type_course.append(site.find_type_course_by_id(int(i)))
+                    list_type_course.append(
+                        site.find_type_course_by_id(int(i)))
             name = site.decode_value(name)
             new_course = site.create_course(name, list_type_course)
             site.courses.append(new_course)
@@ -242,7 +243,7 @@ class Students:
                     data[k] = list_courses
                 else:
                     data[k] = site.decode_value(v)
-            if('courses' in data.keys()) != True:
+            if ('courses' in data.keys()) is not True:
                 data['courses'] = list()
             student = site.create_user('student', data)
             student.observers.append(email_notifier)
@@ -321,9 +322,9 @@ class Teachers:
                     data[k] = list_students
                 else:
                     data[k] = site.decode_value(v)
-            if ('courses' in data.keys()) != True:
+            if ('courses' in data.keys()) is not True:
                 data['courses'] = list()
-            if ('students' in data.keys()) != True:
+            if ('students' in data.keys()) is not True:
                 data['students'] = list()
             teacher = site.create_user('teacher', data)
             teacher.observers.append(email_notifier)
@@ -385,3 +386,17 @@ class Teachers:
                                     objects_list=site.teachers,
                                     objects_list_students=site.students,
                                     objects_list_courses=site.courses)
+
+@AppRoute(routes=routes, url='/api/')
+class CourseApi:
+    @Debug(name='CourseApi')
+    def __call__(self, request):
+        path = request.get('path')
+        if path:
+            try:
+                return '200 OK', BaseSerializer(
+                    site.__dict__.get(path.split('/')[2])).save()
+            except:
+                return '200 OK', BaseSerializer("not").save()
+        else:
+            return '200 OK', BaseSerializer(site.courses).save()

@@ -1,0 +1,802 @@
+Login to the main page.
+Login to the main page.
+List of courses.
+List of Training types.
+List of categories.
+Getting a list of teachers.
+Getting a list of students.
+Login to the main page.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556'}
+Creating student.
+Login to the main page.
+Login to the main page.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '3'}
+Creating student.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '3'}
+Creating student.
+Login to the main page.
+Login to the main page.
+List of students.
+List of students.
+List of students.
+List of students.
+He came to us POST- request: {}
+List of students.
+List of students.
+List of categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'courses': '0'}
+Creating Categories.
+List of categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'courses': '0'}
+Creating Categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_12', 'courses': '1'}
+Creating Categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_12', 'courses': '1'}
+Creating Categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_12', 'courses': '1'}
+Creating Categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_12', 'courses': '1'}
+Creating Categories.
+List of categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_12', 'courses': '1'}
+Creating Categories.
+List of categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_12', 'courses': '1'}
+Creating Categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_12', 'courses': '1'}
+Creating Categories.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+Login to the main page.
+Login to the main page.
+List of courses.
+List of courses.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail Training.
+List of Training types.
+List of Training types.
+List of categories.
+List of categories.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail Categories.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0'}
+Creating student.
+Login to the main page.
+Login to the main page.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0'}
+Creating student.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '1'}
+Creating student.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '1'}
+Creating student.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '1'}
+Creating student.
+List of students.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0'}
+Creating student.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0'}
+Creating student.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0'}
+Creating student.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0'}
+Creating student.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '1'}
+Creating student.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '1'}
+Creating student.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'uegene', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '', 'courses': '3'}
+Creating student.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+Login to the main page.
+Login to the main page.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0'}
+Creating student.
+Login to the main page.
+Login to the main page.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '', 'courses': '1'}
+Creating student.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0'}
+Creating student.
+Login to the main page.
+Login to the main page.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '2'}
+Creating student.
+List of students.
+List of students.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '1'}
+Creating student.
+He came to us POST- request: {}
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '1'}
+Creating student.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '1'}
+Creating student.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '', 'email': '', 'phone': '79617706556', 'courses': '0,1,2'}
+Creating student.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1,2'}
+Creating student.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1,2'}
+Creating student.
+List of categories.
+List of categories.
+List of Training types.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '1'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '1'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '1'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '1'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '1'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '1'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '0,1,2'}
+Creating Training.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '2,3,4'}
+Creating student.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '2,3,4'}
+Creating student.
+List of categories.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '2,3,4'}
+Creating student.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'courses': '0,1,2'}
+Creating Categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'courses': '0,1,2'}
+Creating Categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'courses': '0,1,2'}
+Creating Categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'courses': '0,1,2'}
+Creating Categories.
+List of categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'courses': '0,1,2'}
+Creating Categories.
+List of categories.
+List of categories.
+He came to us create- request: {'method': 'create', 'name': '1231', 'courses': '0,1'}
+Creating Categories.
+Login to the main page.
+Login to the main page.
+List of categories.
+List of students.
+List of students.
+Login to the main page.
+Login to the main page.
+List of students.
+He came to us delete- request: {'method': 'delete', 'id': '0'}
+Deleting student.
+He came to us delete- request: {'method': 'delete', 'id': '0'}
+Deleting student.
+He came to us delete- request: {'method': 'delete', 'id': '0'}
+Deleting student.
+He came to us delete- request: {'method': 'delete', 'id': '0'}
+Deleting student.
+Login to the main page.
+Login to the main page.
+List of students.
+He came to us delete- request: {'method': 'delete', 'id': '0'}
+Deleting student.
+He came to us delete- request: {'method': 'delete', 'id': '0'}
+Deleting student.
+Login to the main page.
+Login to the main page.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': '', 'phone': '', 'courses': '0'}
+Creating student.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'age': '32', 'email': '', 'phone': '', 'courses': '0'}
+Creating student.
+He came to us delete- request: {'method': 'delete', 'id': '1'}
+Deleting student.
+He came to us delete- request: {'method': 'delete', 'id': '1'}
+Deleting student.
+Login to the main page.
+List of students.
+List of students.
+He came to us delete- request: {'method': 'delete', 'id': '0'}
+Deleting student.
+Login to the main page.
+He came to us delete- request: {'method': 'delete', 'id': '0'}
+Deleting student.
+List of students.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '0,1'}
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '0,1'}
+List of students.
+List of students.
+List of students.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail Categories.
+List of students.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+List of students.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+List of categories.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail Categories.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail Categories.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail Categories.
+List of students.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+List of students.
+List of students.
+Login to the main page.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+List of students.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+List of students.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+List of categories.
+List of categories.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail Categories.
+List of categories.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+List of students.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+List of students.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov2', 'age': '32', 'email': 'email@mail.ru', 'phone': '01234567891', 'courses': '3'}
+Updating student.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov2', 'age': '32', 'email': 'email@mail.ru', 'phone': '01234567891', 'courses': '3'}
+Updating student.
+Getting a list of teachers.
+Getting a list of teachers.
+Getting a list of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+List of categories.
+List of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+List of teachers.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+List of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'pavlovich1', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '1', 'students': '0'}
+Creating teacher.
+Login to the main page.
+List of teachers.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'palbimov@yandex.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0'}
+Creating teacher.
+List of teachers.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0'}
+Creating teacher.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'palbimov@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'palbimov@yandex.ru', 'phone': '79617706556', 'courses': '0,1'}
+Creating teacher.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'palbimov@yandex.ru', 'phone': '79617706556', 'courses': '0,1'}
+Creating teacher.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+List of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '1,2', 'students': '0,1'}
+Creating teacher.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov2', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,2', 'students': '0'}
+Updating teachers.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov2', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,2', 'students': '0'}
+Updating teachers.
+List of teachers.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0'}
+Updating teachers.
+List of teachers.
+List of teachers.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,2', 'students': '0,1'}
+Updating teachers.
+Login to the main page.
+List of teachers.
+List of students.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0'}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0'}
+Creating teacher.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Petrov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '2,3', 'students': '0,1'}
+Updating teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'Test', 'last_name': 'Mnimonik', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '1', 'students': '0'}
+Updating teachers.
+Login to the main page.
+Login to the main page.
+List of students.
+List of students.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0', 'students': '0'}
+Creating teacher.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'Test', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Updating teachers.
+List of teachers.
+List of teachers.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'Test', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1,2'}
+Updating teachers.
+Login to the main page.
+Login to the main page.
+List of teachers.
+List of teachers.
+List of teachers.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1,2'}
+Updating teachers.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0', 'students': '0'}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0', 'students': '0'}
+Creating teacher.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Updating teachers.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Updating teachers.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Updating teachers.
+List of teachers.
+He came to us detail- request: {'id': '3', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '3', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '2,3', 'students': '0,1'}
+Updating teachers.
+He came to us detail- request: {'id': '3', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '3', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1,2,3', 'students': '0,1'}
+Updating teachers.
+He came to us update- request: {'id': '3', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1,2,3', 'students': '0,1'}
+Updating teachers.
+He came to us detail- request: {'id': '3', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '3', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1,2'}
+Updating teachers.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1,2'}
+Updating teachers.
+List of teachers.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '0,1,2'}
+Updating teachers.
+List of teachers.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'palbimov@mail.ru', 'phone': '79617706556', 'courses': '0,1', 'students': '0,1'}
+Creating teacher.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '2', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'palbimov@mail.ru', 'phone': '79617706556', 'courses': '0,1,2,3'}
+Updating teachers.
+List of teachers.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+List of students.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'email@mail.ru', 'phone': '01234567891', 'courses': '3'}
+Updating student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'email@mail.ru', 'phone': '01234567891', 'courses': '0,1,2'}
+Updating student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov', 'age': '32', 'email': 'email@mail.ru', 'phone': '01234567891'}
+Updating student.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov', 'age': '32', 'email': 'email@mail.ru', 'phone': '01234567891'}
+Updating student.
+List of students.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov', 'age': '32', 'email': 'email@mail.ru', 'phone': '01234567891', 'courses': '3'}
+Updating student.
+List of students.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov', 'age': '32', 'email': 'email@mail.ru', 'phone': '01234567891', 'courses': '3'}
+Updating student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov', 'age': '32', 'email': 'email@mail.ru', 'phone': '01234567891', 'courses': '0'}
+Updating student.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'uegene', 'last_name': 'Ivanov', 'age': '32', 'email': 'email@mail.ru', 'phone': '01234567891', 'courses': '0'}
+Updating student.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail student.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'email@mail.ru', 'phone': '01234567891'}
+Updating student.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'email@mail.ru', 'phone': '01234567891'}
+Updating student.
+List of teachers.
+List of teachers.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+He came to us delete- request: {'method': 'delete', 'id': '2'}
+Deleting teacher.
+Login to the main page.
+Login to the main page.
+List of teachers.
+List of teachers.
+He came to us delete- request: {'method': 'delete', 'id': '2'}
+Deleting teacher.
+List of teachers.
+He came to us delete- request: {'method': 'delete', 'id': '2'}
+Deleting teacher.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'asda@mail.ru', 'phone': ''}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'asda@mail.ru', 'phone': ''}
+Creating teacher.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'asda@mail.ru', 'phone': ''}
+Creating teacher.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556'}
+Creating teacher.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'palbimov@mail.ru', 'phone': '79617706556'}
+Creating teacher.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'palbimov@mail.ru', 'phone': '79617706556'}
+Creating teacher.
+List of teachers.
+List of categories.
+List of categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_1'}
+Creating category.
+List of categories.
+List of categories.
+He came to us create- request: {'method': 'create', 'name': 'Project_1'}
+Creating category.
+He came to us create- request: {'method': 'create', 'name': 'Project_1'}
+Creating category.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556'}
+Creating student.
+Login to the main page.

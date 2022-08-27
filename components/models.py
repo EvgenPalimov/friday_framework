@@ -550,7 +550,7 @@ class SingletonByName(type):
 class Logger(metaclass=SingletonByName):
 
     def __init__(self, name, writer=ConsoleWriter(),
-                 writer_file=FileWriter('logs,txt')):
+                 writer_file=FileWriter('logs.txt')):
         self.name = name
         self.writer = writer
         self.writer_file = writer_file
