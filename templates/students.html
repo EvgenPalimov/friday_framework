@@ -1,24 +1,24 @@
 {% extends "base.html" %}
 
 {% block main_block %}
-
     <div id="">
         <div class="container-fluid">
-            <h1 class="mt-4">Учителя</h1>
+            <h1 class="mt-4">Ученики</h1>
+
 
             <!-- Modal -->
-            <div class="modal fade" id="teacher_create" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade" id="student_create" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Добавить Учителя</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">Добавить ученика</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <div class="modal-body">
-                            <form action="/teachers-list/" method="post">
+                            <form action="/students-list/" method="post">
                                 <div class="form-group">
                                     <label for="first_name">Имя:</label>
                                     <input type="hidden" name="method" value="create">
@@ -29,6 +29,11 @@
                                     <label for="last_name">Фамилия:</label>
                                     <input type="text" name="last_name" class="form-control" id="last_name"
                                            placeholder="Палымов">
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Возраст:</label>
+                                    <input type="text" name="age" class="form-control" id="age"
+                                           placeholder="32">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Емайл:</label>
@@ -48,16 +53,6 @@
                                         {% endfor %}
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="students">Студенты</label>
-                                    <select name="students" class="form-control" multiple="multiple" id="students">
-                                        {% for student in objects_list_students %}
-                                            <option value="{{ student.id }}">
-                                                {{ student.first_name }} {{ student.last_name }}
-                                            </option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Создать</button>
                                 </div>
@@ -66,14 +61,13 @@
                     </div>
                 </div>
             </div>
-            </div>
 
-            {% include 'include/update_teacher.html' %}
+            {% include 'include/update_student.html' %}
 
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
-                    Список учителей
+                    Список учеников
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -82,24 +76,25 @@
                             <tr>
                                 <th>Ид</th>
                                 <th>ФИО</th>
+                                <th>Возраст</th>
                                 <th>E-mail</th>
                                 <th>Телефон</th>
                                 <th>Курсы</th>
-                                <th>Студенты</th>
                                 <th>Изменить</th>
                                 <th>Удалить</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {% for teacher in objects_list %}
+                            {% for student in objects_list %}
                                 <tr>
-                                    <td>{{ teacher.id }}</td>
-                                    <td>{{ teacher.first_name }}  {{ teacher.last_name }}</td>
-                                    <td>{{ teacher.email }}</td>
-                                    <td>{{ teacher.phone }}</td>
-                                    <td> {% for i in teacher.courses %}
-                                            {% if teacher.courses|length > 1 %}
-                                                {% if i == teacher.courses|last %}
+                                    <td>{{ student.id }}</td>
+                                    <td>{{ student.first_name }}  {{ student.last_name }}</td>
+                                    <td>{{ student.age }}</td>
+                                    <td>{{ student.email }}</td>
+                                    <td>{{ student.phone }}</td>
+                                    <td> {% for i in student.courses %}
+                                            {% if student.courses|length > 1 %}
+                                                {% if i == student.courses|last %}
                                                     {{ i.name }}
                                                 {% else %}
                                                     {{ i.name }},
@@ -109,32 +104,20 @@
                                             {% endif %}
                                         {% endfor %}
                                     </td>
-                                    <td> {% for i in teacher.students %}
-                                            {% if teacher.students|length > 1 %}
-                                                {% if i == teacher.students|last %}
-                                                    {{ i.first_name }} {{ i.last_name}}
-                                                {% else %}
-                                                    {{ i.first_name }} {{ i.last_name}},
-                                                {% endif %}
-                                            {% else %}
-                                                {{ i.first_name }} {{ i.last_name}}
-                                            {% endif %}
-                                        {% endfor %}
-                                    </td>
-                                    <td class="update_teacher_ajax">
-                                        <button type="button" class="btn btn-success btn-block" value="{{ teacher.id }}">
+                                    <td class="update_student_ajax">
+                                        <button type="button" class="btn btn-success btn-block" value="{{ student.id }}">
                                             {#  type="button" class="btn btn-success" data-toggle="modal"#}
-                                            {#  data-target="#teacher_update">#}
+                                            {#  data-target="#student_update">#}
                                             Изменить
                                         </button>
-                                        {# <form action="/teachers-list/">#}
+                                        {# <form action="/students-list/">#}
                                             {# <input class="btn btn-success btn-block" type="submit" value="Изменить">#}
                                         {# </form>#}
                                     </td>
                                     <td>
-                                        <form action="/teachers-list/" method="post">
+                                        <form action="/students-list/" method="post">
                                              <input type="hidden" name="method" value="delete">
-                                            <input type="hidden" name="id" value="{{ teacher.id }}">
+                                            <input type="hidden" name="id" value="{{ student.id }}">
                                             <input class="btn btn-danger btn-block" type="submit" value="Удалить">
                                         </form>
                                     </td>
@@ -145,8 +128,8 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#teacher_create">
-                        Добавить преподователя
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#student_create">
+                        Добавить Ученика
                     </button>
                 </div>
             </div>

@@ -1,17 +1,17 @@
 from components.decorators import AppRoute, Debug
 from components.models import Engine, Logger
-from components.test_data import add_test_data_type_course, \
-    add_test_data_course, add_test_data_category
+from components.notification import EmailNotifier, SmsNotifier
+from components.test_data import start_add_test_data
 from friday_framework.templator import render
 
 site = Engine()
 logger = Logger('views')
+email_notifier = EmailNotifier()
+sms_notifier = SmsNotifier()
 routes = {}
 
 # Test data.
-add_test_data_type_course(site)
-add_test_data_course(site)
-add_test_data_category(site)
+start_add_test_data(site)
 
 
 @AppRoute(routes=routes, url='/')
@@ -40,25 +40,8 @@ class Feedback:
 
     @Debug(name="Feedback")
     def __call__(self, request):
-        Logger.log('Login to the feedback page.')
+        logger.log('Login to the feedback company page.')
         return '200 OK', render('feedback.html')
-
-
-class CoursesList:
-    """CoursesList class - the main page of the site."""
-
-    @Debug(name="CoursesList")
-    def __call__(self, request):
-        logger.log('List of courses.')
-        try:
-            category = site.find_category_by_id(
-                int(request['request_params']['id']))
-            return '200 OK', render('course_list.html',
-                                    objects_list=category.courses,
-                                    name=category.name,
-                                    id=category.id)
-        except KeyError:
-            return '200 OK', 'No courses have been added yet.'
 
 
 @AppRoute(routes=routes, url='/teacher-list/')
@@ -69,16 +52,6 @@ class TeachersList:
     def __call__(self, request):
         logger.log('Getting a list of teachers.')
         return '200 OK', render('teachers.html', objects_list=site.teachers)
-
-
-@AppRoute(routes=routes, url='/student-list/')
-class StudentsList:
-    """StudentsList class - list of students."""
-
-    @Debug(name="StudentsList")
-    def __call__(self, request):
-        logger.log('Getting a list of students.')
-        return '200 OK', render('teachers.html', objects_list=site.students)
 
 
 @AppRoute(routes=routes, url='/type-course-list/')
@@ -137,10 +110,10 @@ class Courses:
         if method == 'CREATE':
             logger.log('Creating Training.')
             name = request['data']['name']
-            type_course = request['data']['type_course']
             list_type_course = []
-            for i in type_course:
-                list_type_course.append(site.find_type_course_by_id(int(i)))
+            if 'type_course' in request['data']:
+                for i in request['data']['type_course']:
+                    list_type_course.append(site.find_type_course_by_id(int(i)))
             name = site.decode_value(name)
             new_course = site.create_course(name, list_type_course)
             site.courses.append(new_course)
@@ -185,7 +158,6 @@ class Courses:
             return '200 OK', render('courses.html',
                                     objects_list=site.courses)
 
-
         elif method == 'GET':
             logger.log('List of courses.')
             return '200 OK', render('courses.html',
@@ -201,13 +173,13 @@ class Category:
     def __call__(self, request):
         method = request['method'].upper()
         if method == 'CREATE':
-            logger.log('Creating Categories.')
+            logger.log('Creating category.')
             name = request['data']['name']
-            courses = request['data']['courses']
             list_courses = []
-            for i in courses:
-                course = site.find_course_by_id(int(i))
-                list_courses.append(course.name)
+            if 'courses' in request['data']:
+                for i in request['data']['courses']:
+                    course = site.find_course_by_id(int(i))
+                    list_courses.append(course)
             name = site.decode_value(name)
             new_category = site.create_category(name, list_courses)
             site.categories.append(new_category)
@@ -215,7 +187,7 @@ class Category:
                                     objects_list=site.categories)
 
         elif method == 'DETAIL':
-            logger.log('Detail Categories.')
+            logger.log('Detail category..')
             id = int(request['data']['id'])
             result = site.category_detail(id)
             return '200 OK', render('include/update_category.html',
@@ -225,20 +197,22 @@ class Category:
                                     objects_list_courses=site.courses)
 
         elif method == 'DELETE':
-            logger.log('Deleting Categories.')
+            logger.log('Deleting category..')
             id = int(request['data']['id'])
             result = site.category_delete(id)
             return '200 OK', render('category.html',
                                     objects_list=result)
 
         elif method == 'UPDATE':
-            logger.log('Updating Categories')
+            logger.log('Updating category')
             id = int(request['data']['id'])
             name = request['data']['name']
-            courses = request['data']['course']
             list_courses = []
-            for i in courses:
-                list_courses.append(site.find_course_by_id(int(i)))
+            if 'courses' in request['data']:
+                for i in request['data']['courses']:
+                    list_courses.append(site.find_course_by_id(int(i)))
+            else:
+                list_courses = site.find_category_by_id(int(id)).courses
             result = site.category_update(id, name, list_courses)
             return '200 OK', render('category.html',
                                     objects_list=result)
@@ -247,4 +221,167 @@ class Category:
             logger.log('List of categories.')
             return '200 OK', render('category.html',
                                     objects_list=site.categories,
+                                    objects_list_courses=site.courses)
+
+
+@AppRoute(routes=routes, url='/students-list/')
+class Students:
+    """Students class - CRUD class is student."""
+
+    @Debug(name="StudentsList-create-update-delete-detail")
+    def __call__(self, request):
+        method = request['method'].upper()
+        if method == 'CREATE':
+            logger.log('Creating student.')
+            data = request['data']
+            for k, v in data.items():
+                if k == 'courses':
+                    list_courses = []
+                    for i in v:
+                        list_courses.append(site.find_course_by_id(int(i)))
+                    data[k] = list_courses
+                else:
+                    data[k] = site.decode_value(v)
+            if('courses' in data.keys()) != True:
+                data['courses'] = list()
+            student = site.create_user('student', data)
+            student.observers.append(email_notifier)
+            site.students.append(student)
+            student.add_student(site)
+            return '200 OK', render('students.html',
+                                    objects_list=site.students,
+                                    objects_list_courses=site.courses)
+
+        elif method == 'DETAIL':
+            logger.log('Detail student.')
+            id = int(request['data']['id'])
+            result = site.student_detail(id)
+            return '200 OK', render('include/update_student.html',
+                                    id=result.id,
+                                    first_name=result.first_name,
+                                    last_name=result.last_name,
+                                    age=result.age,
+                                    email=result.email,
+                                    phone=result.phone,
+                                    objects_list_courses=site.courses)
+
+        elif method == 'DELETE':
+            logger.log('Deleting student.')
+            id = int(request['data']['id'])
+            site.student_delete(id)
+            return '200 OK', render('students.html',
+                                    objects_list=site.students)
+
+        elif method == 'UPDATE':
+            logger.log('Updating student.')
+            id = int(request['data']['id'])
+            first_name = request['data']['first_name']
+            last_name = request['data']['last_name']
+            age = request['data']['age']
+            email = request['data']['email']
+            phone = request['data']['phone']
+            list_courses = []
+            if 'courses' in request['data']:
+                for i in request['data']['courses']:
+                    list_courses.append(site.find_course_by_id(int(i)))
+            else:
+                list_courses = site.find_student_by_id(int(id)).courses
+            site.student_update(id, first_name, last_name, age,
+                                list_courses, email, phone)
+            return '200 OK', render('students.html',
+                                    objects_list=site.students)
+
+        elif method == 'GET':
+            logger.log('List of students.')
+            return '200 OK', render('students.html',
+                                    objects_list=site.students,
+                                    objects_list_courses=site.courses)
+
+
+@AppRoute(routes=routes, url='/teachers-list/')
+class Teachers:
+    """Teachers class - CRUD class is student."""
+
+    @Debug(name="TeachersList-create-update-delete-detail")
+    def __call__(self, request):
+        method = request['method'].upper()
+        if method == 'CREATE':
+            logger.log('Creating teacher.')
+            data = request['data']
+            for k, v in data.items():
+                list_courses = []
+                list_students = []
+                if k == 'courses':
+                    for i in v:
+                        list_courses.append(site.find_course_by_id(int(i)))
+                    data[k] = list_courses
+                elif k == 'students':
+                    for i in v:
+                        list_students.append(site.find_student_by_id(int(i)))
+                    data[k] = list_students
+                else:
+                    data[k] = site.decode_value(v)
+            if ('courses' in data.keys()) != True:
+                data['courses'] = list()
+            if ('students' in data.keys()) != True:
+                data['students'] = list()
+            teacher = site.create_user('teacher', data)
+            teacher.observers.append(email_notifier)
+            site.teachers.append(teacher)
+            teacher.add_teacher(site)
+            return '200 OK', render('teachers.html',
+                                    objects_list=site.teachers,
+                                    objects_list_students=site.students,
+                                    objects_list_courses=site.courses)
+
+        elif method == 'DETAIL':
+            logger.log('Detail teacher.')
+            id = int(request['data']['id'])
+            result = site.teacher_detail(id)
+            return '200 OK', render('include/update_teacher.html',
+                                    id=result.id,
+                                    first_name=result.first_name,
+                                    last_name=result.last_name,
+                                    email=result.email,
+                                    phone=result.phone,
+                                    objects_list_courses=site.courses,
+                                    objects_list_students=site.students)
+
+        elif method == 'DELETE':
+            logger.log('Deleting teacher.')
+            id = int(request['data']['id'])
+            site.teacher_delete(id)
+            return '200 OK', render('teachers.html',
+                                    objects_list=site.teachers)
+
+        elif method == 'UPDATE':
+            logger.log('Updating teachers.')
+            id = int(request['data']['id'])
+            first_name = request['data']['first_name']
+            last_name = request['data']['last_name']
+            email = request['data']['email']
+            phone = request['data']['phone']
+            list_courses = []
+            if 'courses' in request['data']:
+                for i in request['data']['courses']:
+                    list_courses.append(site.find_course_by_id(int(i)))
+            else:
+                list_courses = site.find_teacher_by_id(int(id)).courses
+            list_students = []
+            if 'students' in request['data']:
+                for i in request['data']['students']:
+                    list_students.append(site.find_student_by_id(int(i)))
+            else:
+                list_students = site.find_teacher_by_id(int(id)).students
+            site.teacher_update(id, first_name, last_name, list_students,
+                                list_courses, email, phone)
+            return '200 OK', render('teachers.html',
+                                    objects_list=site.teachers,
+                                    objects_list_students=site.students)
+
+        elif method == 'GET':
+            logger.log('List of teachers.')
+            return '200 OK', render('teachers.html',
+                                    objects_list=site.teachers,
+                                    objects_list_students=site.students,
                                     objects_list_courses=site.courses)

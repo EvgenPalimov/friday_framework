@@ -15,12 +15,21 @@ class ParseInputData:
         :return: dict: request url parameters.
         """
         result = {}
+        value_to_list = ['courses', 'students', 'type_course']
         if data:
             data_decode = urllib.parse.unquote(data)
             params = data_decode.split('&')
+            value = []
             for item in params:
                 k, v = item.split('=')
-                result[k] = v
+                if k in value_to_list:
+                    if result.get(k, False):
+                        # append the new number to the existing array at this slot
+                        result[k].append(v)
+                    else:
+                        result[k] = [v]
+                else:
+                    result[k] = v
         return result
 
 

@@ -57,6 +57,44 @@ window.onload = () => {
         e.preventDefault();
     })
 
+    $('.update_student_ajax').on('click', 'button[type="button"]', (e) => {
+        let t_href = e.target.value;
+        $.ajax({
+            url: '/students-list/',
+            type: 'POST',
+            data: jQuery.param({id: t_href, method: 'detail'}),
+            success: function (response) {
+                console.log(response);
+                $('.update_student').html(response)
+                $('#student_update_id').trigger('click');
+
+            },
+           error: function(error){
+				console.log(error);
+			}
+        });
+        e.preventDefault();
+    })
+
+     $('.update_teacher_ajax').on('click', 'button[type="button"]', (e) => {
+        let t_href = e.target.value;
+        $.ajax({
+            url: '/teachers-list/',
+            type: 'POST',
+            data: jQuery.param({id: t_href, method: 'detail'}),
+            success: function (response) {
+                console.log(response);
+                $('.update_teacher').html(response)
+                $('#teacher_update_id').trigger('click');
+
+            },
+           error: function(error){
+				console.log(error);
+			}
+        });
+        e.preventDefault();
+    })
+
 }
 
 

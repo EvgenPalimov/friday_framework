@@ -1,0 +1,79 @@
+<div class="update_teacher">
+{# <button type="button" id="student_create" class="btn btn-success" data-toggle="modal" data-target="#teacher_create"> #}
+    {# Добавить учителя #}
+{# </button> #}
+
+    <input type="hidden" id="teacher_update_id" class="btn btn-success" data-toggle="modal" data-target="#teacher_update">
+    <div class="modal fade" id="teacher_update" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Обновить учителя</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/teachers-list/" method="post">
+                        <div class="form-group">
+                            <label for="first_name">Имя:</label>
+                            <input type="hidden" name="id" id="id" value="{{ id }}">
+                            <input type="hidden" name="method" value="update">
+                            <input type="text" name="first_name"
+                                   class="form-control" id="first_name"
+                                   value="{{ first_name }}"
+                                   placeholder="Евгений">
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Фамилия:</label>
+                            <input type="hidden" name="method" value="update">
+                            <input type="text" name="last_name"
+                                   class="form-control" id="last_name"
+                                   value="{{ last_name }}"
+                                   placeholder="Палымов">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Емайл:</label>
+                            <input type="hidden" name="method" value="update">
+                            <input type="text" name="email"
+                                   class="form-control" id="email"
+                                   value="{{ email }}"
+                                   placeholder="mail@mail.ru>">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон:</label>
+                            <input type="hidden" name="method" value="update">
+                            <input type="text" name="phone"
+                                   class="form-control" id="phone"
+                                   value="{{ phone }}"
+                                   placeholder="79012345678">
+                        </div>
+                        <div class="form-group">
+                            <label for="courses">Курсы</label>
+                            <select name="courses" class="form-control" multiple="multiple" id="courses">
+                                {% for course in objects_list_courses %}
+                                    <option value="{{ course.id }}">{{ course.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="students">Студенты</label>
+                            <select name="students" class="form-control" multiple="multiple" id="students">
+                                {% for student in objects_list_students %}
+                                    <option value="{{ student.id }}">
+                                        {{ student.first_name }} {{ student.last_name }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Обновить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

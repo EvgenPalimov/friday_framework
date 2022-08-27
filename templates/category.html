@@ -32,10 +32,8 @@
                                 <div class="form-group">
                                     <label for="courses">Виды курсов:</label>
                                     <select name="courses" class="form-control" multiple="multiple" id="courses">
-                                        {# class="form-control"  id="example-create-start" size="5" multiple> #}
                                         {% for course in objects_list_courses %}
                                             <option value="{{ course.id }}">{{ course.name }}</option>
-
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -79,30 +77,37 @@
                                 <td>{{ category.id }}</td>
                                 <td>{{ category.name }}</td>
                                 <td>
-                                    {% for i in category.courses %}
-                                            {{ i.name }}
-                                    {% endfor %}
+                                     {% for i in category.courses %}
+                                            {% if category.courses|length > 1 %}
+                                                {% if i == category.courses|last %}
+                                                    {{ i.name }}
+                                                {% else %}
+                                                    {{ i.name }},
+                                                {% endif %}
+                                            {% else %}
+                                                {{ i.name }}
+                                            {% endif %}
+                                        {% endfor %}
                                 </td>
 <!--                                <td>{{ category.teachers }}</td>-->
                                 <td class="update_category_ajax">
-
-                                        <button type="button" class="btn btn-success btn-block" value="{{ category.id }}">
-                                            {#  type="button" class="btn btn-success" data-toggle="modal"#}
-                                            {#  data-target="#category_update">#}
-                                            Изменить
-                                        </button>
-                                        {# <form action="/category-list/">#}
+                                    <button type="button" class="btn btn-success btn-block" value="{{ category.id }}">
+                                        {#  type="button" class="btn btn-success" data-toggle="modal"#}
+                                        {#  data-target="#category_update">#}
+                                        Изменить
+                                    </button>
+                                    {# <form action="/category-list/">#}
                                         {# <input class="btn btn-success btn-block" type="submit" value="Изменить">#}
-                                        {# </form>#}
-                                    </td>
-                                    <td>
-                                        <form action="/category-list/" method="post">
-                                            <input type="hidden" name="method" value="delete">
-                                            <input type="hidden" name="id" value="{{ category.id }}">
-                                            <input class="btn btn-danger btn-block" type="submit" value="Удалить">
-                                        </form>
+                                    {# </form>#}
+                                </td>
+                                <td>
+                                    <form action="/category-list/" method="post">
+                                        <input type="hidden" name="method" value="delete">
+                                        <input type="hidden" name="id" value="{{ category.id }}">
+                                        <input class="btn btn-danger btn-block" type="submit" value="Удалить">
+                                    </form>
 
-                                    </td>
+                                </td>
                             </tr>
                             {% endfor %}
                             </tbody>

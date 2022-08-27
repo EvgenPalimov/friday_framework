@@ -24,10 +24,8 @@
                                 <div class="form-group">
                                     <label for="type_course">Виды обучения:</label>
                                     <select name="type_course" class="form-control" multiple="multiple" id="type_course">
-                                        {# class="form-control"  id="example-create-start" size="5" multiple> #}
                                         {% for type_course in objects_list_type_course %}
-                                            <option value="{{ type_course.id }}">{{ type_course.name }}</option>
-                                                {# <option selected value="{{ type_course.id }}">{{ type_course.name  }}</option> #}
+                                            <option value="{{ type_course.id }}">{{ type_course.name }} </option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -71,7 +69,7 @@
                                                 {% if i == course.type|last %}
                                                     {{ i.name }}
                                                 {% else %}
-                                                    {{ i.name }} |
+                                                    {{ i.name }},
                                                 {% endif %}
                                             {% else %}
                                                 {{ i.name }}

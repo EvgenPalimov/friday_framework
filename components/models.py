@@ -1,18 +1,45 @@
 import quopri
 
-
 # Abstract classes users.
+from components.notification import Subject, ConsoleWriter, FileWriter
+
 
 class User:
-    pass
+    """Class User - creates a User object."""
+
+    auto_id = 0
+
+    def __init__(self, dict_data):
+        self.first_name = dict_data['first_name']
+        self.last_name = dict_data['last_name']
+        self.phone = dict_data['phone']
+        self.id = User.auto_id
+        self.observers = []
+        self.courses = dict_data['courses']
+        self.email = dict_data['email']
+        User.auto_id += 1
 
 
-class Teacher(User):
-    pass
+class Teacher(User, Subject):
+
+    def __init__(self, dict_data):
+        super().__init__(dict_data)
+        self.students = dict_data['students']
 
 
-class Student(User):
-    pass
+    def add_teacher(self, site):
+        self.notify_teacher(site)
+
+
+class Student(User, Subject):
+    """Class Student - creates a Student object."""
+
+    def __init__(self, dict_data):
+        super().__init__(dict_data)
+        self.age = dict_data['age']
+
+    def add_student(self, site):
+        self.notify_student(site)
 
 
 class UserFactory:
@@ -24,12 +51,14 @@ class UserFactory:
     }
 
     @classmethod
-    def create(cls, type_):
+    def create(cls, type_, dict_data):
         """The function creates the desired user class."""
-        return cls.types[type_]()
+        return cls.types[type_](dict_data)
 
 
 class Course:
+    """Class Course - creates a Course object."""
+
     auto_id = 0
 
     def __init__(self, name, course_type):
@@ -37,9 +66,11 @@ class Course:
         self.type = course_type
         self.id = Course.auto_id
         Course.auto_id += 1
+        super().__init__()
 
 
 class CourseType:
+    """Class CourseType - creates a CourseType object."""
     auto_id = 0
 
     def __init__(self, param):
@@ -80,10 +111,7 @@ class CourseFactory:
 
 
 class Category:
-    """
-    Class category - initializes data and counts the
-    number of courses in the category.
-    """
+    """Class category - creates a Category object."""
 
     auto_id = 0
 
@@ -148,7 +176,7 @@ class Engine:
         Updating course type data.
 
         :param id: id of type course,
-        :name: str: new name of type course,
+        :param name: str: new name of type course,
         :return: returns an updated list of course types.
         """
 
@@ -167,19 +195,6 @@ class Engine:
         """
 
         for item in self.type_courses:
-            if item.id == id:
-                return item
-        raise Exception(f'There is no course type with id = {id}.')
-
-    def find_course_by_id(self, id):
-        """
-        Search for a certain course by id.
-
-        :param id: id course,
-        :return: returns the course object.
-        """
-
-        for item in self.courses:
             if item.id == id:
                 return item
         raise Exception(f'There is no course type with id = {id}.')
@@ -234,8 +249,8 @@ class Engine:
         Updating course data.
 
         :param id: id of type course,
-        :name: str: new name of type course,
-        :type_: list: new type of course,
+        :param name: str: new name of type course,
+        :param type_: list: new type of course,
         :return: returns an updated list of course types.
         """
 
@@ -273,15 +288,161 @@ class Engine:
                 return item
         return None
 
+    def find_course_by_id(self, id):
+        """
+        Search for a certain course by id.
+
+        :param id: id course,
+        :return: returns the course object.
+        """
+
+        for item in self.courses:
+            if item.id == id:
+                return item
+        raise Exception(f'There is no course type with id = {id}.')
+
     @staticmethod
-    def create_user(type_):
+    def create_user(type_, dict_data):
         """
         A function that triggers the creation of a user.
 
         :param type_: str: user type - to be created.
+        :param dict_data: dict: data of created to user.
         """
 
-        return UserFactory.create(type_)
+        return UserFactory.create(type_, dict_data)
+
+    def student_delete(self, id):
+        """
+        The function of deleting a student by id.
+
+        :param id: id student,
+        :return: returns list of students.
+        """
+
+        for item in self.students:
+            if item.id == id:
+                self.students.pop(id)
+                return self.students
+        raise Exception(f'There is no student with id = {id}.')
+
+    def student_detail(self, id):
+        """
+        Detailing the student.
+
+        :param id: id student,
+        :return: returns the student object.
+        """
+
+        for item in self.students:
+            if item.id == id:
+                return item
+        raise Exception(f'There is no student with id = {id}.')
+
+    def student_update(self, id, first_name, last_name, age, courses, email,
+                       phone):
+        """
+        Updating data of the student.
+
+        :param id: id student,
+        :param first_name: first_name of student,
+        :param last_name: last_name of student,
+        :param age: age of student,
+        :param courses: the course in which the student studies,
+        :param email: email of student,
+        :param phone:phone number of student,
+        :return: returns list of students.
+        """
+
+        for item in self.students:
+            if item.id == id:
+                item.first_name = first_name
+                item.last_name = last_name
+                item.age = age
+                item.courses = courses
+                item.email = email
+                item.phone = phone
+                return self.students
+        raise Exception(f'There is no student with id = {id}.')
+
+    def find_student_by_id(self, id):
+        """
+        Search for a certain student by id.
+
+        :param id: id student,
+        :return: returns the student object.
+        """
+
+        for item in self.students:
+            if item.id == id:
+                return item
+        raise Exception(f'There is no student type with id = {id}.')
+
+    def teacher_delete(self, id):
+        """
+        The function of deleting a teacher by id.
+
+        :param id: id teacher,
+        :return: returns list of teachers.
+        """
+
+        for item in self.teachers:
+            if item.id == id:
+                self.teachers.pop(id)
+                return self.teachers
+        raise Exception(f'There is no teacher with id = {id}.')
+
+    def teacher_detail(self, id):
+        """
+        Detailing the teacher.
+
+        :param id: id teacher,
+        :return: returns the teacher object.
+        """
+
+        for item in self.teachers:
+            if item.id == id:
+                return item
+        raise Exception(f'There is no teacher with id = {id}.')
+
+    def teacher_update(self, id, first_name, last_name, students, courses, email,
+                       phone):
+        """
+        Updating data of the teacher.
+
+        :param id: id teacher,
+        :param first_name: first_name of teacher,
+        :param last_name: last_name of teacher,
+        :param students: the students in which the teacher studies,
+        :param courses: list of students who study with a teacher,
+        :param email: email of teacher,
+        :param phone:phone number of teacher,
+        :return: returns list of teacher.
+        """
+
+        for item in self.teachers:
+            if item.id == id:
+                item.first_name = first_name
+                item.last_name = last_name
+                item.students = students
+                item.courses = courses
+                item.email = email
+                item.phone = phone
+                return self.teachers
+        raise Exception(f'There is no teacher with id = {id}.')
+
+    def find_teacher_by_id(self, id):
+        """
+        Search for a certain teacher by id.
+
+        :param id: id teacher,
+        :return: returns the teacher object.
+        """
+
+        for item in self.teachers:
+            if item.id == id:
+                return item
+        raise Exception(f'There is no teacher type with id = {id}.')
 
     @staticmethod
     def create_category(name, courses=None):
@@ -307,8 +468,8 @@ class Engine:
         Updating category data.
 
         :param id: id category,
-        :name: str: new name category,
-        :courses: list: new list of courses,
+        :param name: str: new name category,
+        :param courses: list: new list of courses,
         :return: returns an updated list of courses.
         """
 
@@ -346,8 +507,6 @@ class Engine:
             if item.id == id:
                 return item
         raise Exception(f'There is no category with this id: {id}')
-
-
 
     @staticmethod
     def decode_value(val):
@@ -390,9 +549,12 @@ class SingletonByName(type):
 
 class Logger(metaclass=SingletonByName):
 
-    def __init__(self, name):
+    def __init__(self, name, writer=ConsoleWriter(),
+                 writer_file=FileWriter('logs,txt')):
         self.name = name
+        self.writer = writer
+        self.writer_file = writer_file
 
-    @staticmethod
-    def log(text):
-        print('log--->', text)
+    def log(self, text):
+        self.writer.write(text)
+        self.writer_file.write(text)

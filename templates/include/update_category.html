@@ -22,9 +22,8 @@
                             <input type="hidden" name="method" value="update">
                             <input type="text" name="name" class="form-control" id="name" value="{{ name }}"
                                    placeholder="Name">
-                            <label for="course">Виды курсов:</label>
-                            <select name="course" class="form-control" multiple="multiple" id="course">
-                                {# class="form-control"  id="example-update-start" size="5" multiple> #}
+                            <label for="courses">Виды курсов:</label>
+                            <select name="courses" class="form-control" multiple="multiple" id="courses">
                                 {% for course in objects_list_courses %}
                                     <option value="{{ course.id }}">{{ course.name }}</option>
                                 {% endfor %}
