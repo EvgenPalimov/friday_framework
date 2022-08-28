@@ -44,16 +44,6 @@ class Feedback:
         return '200 OK', render('feedback.html')
 
 
-@AppRoute(routes=routes, url='/teacher-list/')
-class TeachersList:
-    """TeachersList class - list of teachers."""
-
-    @Debug(name="TeachersList")
-    def __call__(self, request):
-        logger.log('Getting a list of teachers.')
-        return '200 OK', render('teachers.html', objects_list=site.teachers)
-
-
 @AppRoute(routes=routes, url='/type-course-list/')
 class TypeCourses:
     """TypeCourses class - CRUD class is type of course."""
@@ -386,6 +376,7 @@ class Teachers:
                                     objects_list=site.teachers,
                                     objects_list_students=site.students,
                                     objects_list_courses=site.courses)
+
 
 @AppRoute(routes=routes, url='/api/')
 class CourseApi:

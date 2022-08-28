@@ -18,7 +18,10 @@ def add_test_data_course(site):
         'C': [online]
     }
 
-    list_course = ['Python','Java','JavaScript','C']
+    list_course = ['Основы языка Python',
+                   'Алгоритмы и структуры данных на Python. Базовый курс',
+                   'Основы реляционных баз данных. MySQL',
+                   'Linux. Рабочая станция']
 
     for i in list_course:
         type_course = dict_course.get(i)

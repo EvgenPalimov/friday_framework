@@ -1,6 +1,4 @@
 import quopri
-
-# Abstract classes users.
 from components.notification import Subject, ConsoleWriter, FileWriter
 
 
@@ -25,7 +23,6 @@ class Teacher(User, Subject):
     def __init__(self, dict_data):
         super().__init__(dict_data)
         self.students = dict_data['students']
-
 
     def add_teacher(self, site):
         self.notify_teacher(site)
@@ -405,7 +402,8 @@ class Engine:
                 return item
         raise Exception(f'There is no teacher with id = {id}.')
 
-    def teacher_update(self, id, first_name, last_name, students, courses, email,
+    def teacher_update(self, id, first_name, last_name, students, courses,
+                       email,
                        phone):
         """
         Updating data of the teacher.
