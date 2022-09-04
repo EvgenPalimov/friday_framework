@@ -809,3 +809,295 @@ List of categories.
 List of categories.
 List of teachers.
 List of students.
+Login to the main page.
+Login to the main page.
+List of courses.
+List of courses.
+List of Training types.
+List of categories.
+List of teachers.
+List of categories.
+List of categories.
+List of students.
+List of students.
+List of teachers.
+List of teachers.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail teacher.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+List of Training types.
+He came to us create- request: {'method': 'create', 'name': 'Project_1'}
+Creating Training types.
+He came to us detail- request: {'id': '1', 'method': 'detail'}
+Detail Training types.
+He came to us update- request: {'id': '1', 'method': 'update', 'name': 'Project_2'}
+Update Training types.
+He came to us delete- request: {'method': 'delete', 'id': '1'}
+Delete Training types.
+List of Training types.
+List of Training types.
+He came to us create- request: {'method': 'create', 'name': 'Project_1'}
+Creating Training types.
+He came to us detail- request: {'id': '2', 'method': 'detail'}
+Detail Training types.
+He came to us update- request: {'id': '2', 'method': 'update', 'name': 'Project_2'}
+Update Training types.
+He came to us update- request: {'id': '2', 'method': 'update', 'name': 'Project_2'}
+Update Training types.
+Login to the main page.
+Login to the main page.
+List of Training types.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '2'}
+Creating Training.
+List of Training types.
+List of Training types.
+List of categories.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_1'}
+Creating category.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '2'}
+Creating Training.
+List of courses.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '2'}
+Creating Training.
+List of courses.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '2'}
+Creating Training.
+List of courses.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '2'}
+Creating Training.
+List of courses.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '2'}
+Creating Training.
+Login to the main page.
+Login to the main page.
+List of Training types.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '2'}
+Creating Training.
+List of courses.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '2'}
+Creating Training.
+List of courses.
+List of courses.
+Login to the main page.
+List of Training types.
+He came to us create- request: {'method': 'create', 'name': 'Project_1'}
+Creating Training types.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_2', 'type_course': '1'}
+Creating Training.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_2', 'type_course': '1'}
+Creating Training.
+Login to the main page.
+Login to the main page.
+List of Training types.
+He came to us create- request: {'method': 'create', 'name': 'Project_1'}
+Creating Training types.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_12', 'type_course': '1'}
+Creating Training.
+List of courses.
+List of courses.
+Login to the main page.
+Login to the main page.
+List of Training types.
+List of courses.
+Login to the main page.
+Login to the main page.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': '1231', 'type_course': '1'}
+Creating Training.
+List of courses.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'asda', 'type_course': '1'}
+Creating Training.
+Login to the main page.
+Login to the main page.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_2', 'type_course': '1'}
+Creating Training.
+Login to the main page.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': '1231', 'type_course': '1'}
+Creating Training.
+Login to the main page.
+Login to the main page.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+List of Training types.
+He came to us create- request: {'method': 'create', 'name': '1231'}
+Creating Training types.
+List of courses.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'programing1', 'type_course': '1,2'}
+Creating Training.
+Login to the main page.
+Login to the main page.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+Login to the main page.
+Login to the main page.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+Login to the main page.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '1,2'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '1,2'}
+Creating Training.
+He came to us detail- request: {'id': '7', 'method': 'detail'}
+Detail Training.
+He came to us detail- request: {'id': '7', 'method': 'detail'}
+Detail Training.
+He came to us detail- request: {'id': '5', 'method': 'detail'}
+Detail Training.
+He came to us detail- request: {'id': '5', 'method': 'detail'}
+Detail Training.
+He came to us detail- request: {'id': '5', 'method': 'detail'}
+Detail Training.
+He came to us delete- request: {'method': 'delete', 'id': '5'}
+Deleting Training.
+Login to the main page.
+Login to the main page.
+List of Training types.
+List of courses.
+List of courses.
+He came to us delete- request: {'method': 'delete', 'id': '5'}
+Deleting Training.
+He came to us delete- request: {'method': 'delete', 'id': '5'}
+Deleting Training.
+List of courses.
+List of courses.
+He came to us delete- request: {'method': 'delete', 'id': '7'}
+Deleting Training.
+He came to us delete- request: {'method': 'delete', 'id': '7'}
+Deleting Training.
+Login to the main page.
+Login to the main page.
+List of courses.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '1,2'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Project_1', 'type_course': '1,2'}
+Creating Training.
+He came to us detail- request: {'id': '8', 'method': 'detail'}
+Detail Training.
+List of courses.
+He came to us copy- request: {'method': 'copy', 'id': '6'}
+Copy Training
+List of courses.
+List of courses.
+He came to us copy- request: {'method': 'copy', 'id': '6'}
+Copy Training
+List of courses.
+List of courses.
+He came to us copy- request: {'method': 'copy', 'id': '6'}
+Copy Training
+Login to the main page.
+Login to the main page.
+List of courses.
+He came to us detail- request: {'id': '6', 'method': 'detail'}
+Detail Training.
+He came to us update- request: {'id': '6', 'method': 'update', 'name': 'programing123', 'type_course': '1'}
+Updating Training
+List of courses.
+List of courses.
+He came to us detail- request: {'id': '6', 'method': 'detail'}
+Detail Training.
+He came to us update- request: {'id': '6', 'method': 'update', 'name': 'programing123', 'type_course': '1'}
+Updating Training
+List of courses.
+He came to us detail- request: {'id': '6', 'method': 'detail'}
+Detail Training.
+He came to us update- request: {'id': '6', 'method': 'update', 'name': 'programing123', 'type_course': '1'}
+Updating Training
+List of courses.
+List of courses.
+He came to us detail- request: {'id': '6', 'method': 'detail'}
+Detail Training.
+He came to us update- request: {'id': '6', 'method': 'update', 'name': 'programing123', 'type_course': '1'}
+Updating Training
+List of courses.
+He came to us detail- request: {'id': '6', 'method': 'detail'}
+Detail Training.
+He came to us update- request: {'id': '6', 'method': 'update', 'name': 'programing123', 'type_course': '1'}
+Updating Training
+Login to the main page.
+Login to the main page.
+List of Training types.
+List of Training types.
+He came to us create- request: {'method': 'create', 'name': 'Project_1'}
+Creating Training types.
+He came to us create- request: {'method': 'create', 'name': '1231'}
+Creating Training types.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'programing1', 'type_course': '1,2'}
+Creating Training.
+He came to us detail- request: {'id': '1', 'method': 'detail'}
+Detail Training.
+He came to us update- request: {'id': '1', 'method': 'update', 'name': 'programing123', 'type_course': '2'}
+Updating Training
+List of courses.
+List of courses.
+He came to us detail- request: {'id': '1', 'method': 'detail'}
+Detail Training.
+He came to us update- request: {'id': '1', 'method': 'update', 'name': 'programing123', 'type_course': '1'}
+Updating Training
+Login to the main page.
+Login to the main page.
+List of Training types.
+He came to us create- request: {'method': 'create', 'name': 'Project_1'}
+Creating Training types.
+He came to us create- request: {'method': 'create', 'name': '1231'}
+Creating Training types.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'programing1', 'type_course': '1,2'}
+Creating Training.
+He came to us detail- request: {'id': '1', 'method': 'detail'}
+Detail Training.
+He came to us update- request: {'id': '1', 'method': 'update', 'name': 'programing123', 'type_course': '1'}
+Updating Training
+List of courses.
+He came to us detail- request: {'id': '1', 'method': 'detail'}
+Detail Training.
+He came to us update- request: {'id': '1', 'method': 'update', 'name': 'programing123', 'type_course': '2'}
+Updating Training
+Login to the main page.
+Login to the main page.
+List of courses.
+List of courses.
+List of Training types.
+List of categories.
+List of teachers.
+List of students.

@@ -46,7 +46,6 @@
                             <tr>
                                 <th>Ид</th>
                                 <th>Наименование</th>
-                                <th>Скопировать</th>
                                 <th>Изменить</th>
                                 <th>Удалить</th>
                             </tr>
@@ -56,12 +55,6 @@
                                 <tr>
                                     <td>{{ course.id }}</td>
                                     <td>{{ course.name }}</td>
-                                    <td>
-                                        <form action="#" method="post">
-                                            <input class="btn btn-danger btn-block" type="submit" value="Не работает" readonly>
-                                        </form>
-                                    </td>
-
                                     <td class="update_type_course_ajax">
 
                                         <button type="button" class="btn btn-success btn-block" value="{{ course.id }}">

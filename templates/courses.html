@@ -53,7 +53,6 @@
                                 <th>Ид</th>
                                 <th>Наименование</th>
                                 <th>Тип курса</th>
-                                <th>Скопировать</th>
                                 <th>Изменить</th>
                                 <th>Удалить</th>
                             </tr>
@@ -67,23 +66,15 @@
                                         {% for i in course.type %}
                                             {% if course.type|length > 1 %}
                                                 {% if i == course.type|last %}
-                                                    {{ i.name }}
+                                                    {{ i }}
                                                 {% else %}
-                                                    {{ i.name }},
+                                                    {{ i }},
                                                 {% endif %}
                                             {% else %}
-                                                {{ i.name }}
+                                                {{ i }}
                                             {% endif %}
                                         {% endfor %}
                                     </td>
-                                    <td>
-                                        <form action="/course-list/" method="post">
-                                            <input type="hidden" name="method" value="copy">
-                                            <input type="hidden" name="id" value="{{ course.id }}">
-                                            <input class="btn btn-success btn-block" type="submit" value="Копировать">
-                                        </form>
-                                    </td>
-
                                     <td class="update_course_ajax">
 
                                         <button type="button" class="btn btn-success btn-block" value="{{ course.id }}">

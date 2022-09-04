@@ -1,17 +1,23 @@
 from components.decorators import AppRoute, Debug
-from components.models import Engine, Logger
+from components.models import Engine, Logger, MapperRegistry
 from components.notification import EmailNotifier, SmsNotifier, BaseSerializer
 from components.test_data import start_add_test_data
+from components.unit_of_work import UnitOfWork
 from friday_framework.templator import render
 
 site = Engine()
 logger = Logger('views')
 email_notifier = EmailNotifier()
 sms_notifier = SmsNotifier()
+UnitOfWork.new_current()
+UnitOfWork.get_current().set_mapper_registry(MapperRegistry)
+site.courses = MapperRegistry.get_current_mapper('course').all()
+site.type_courses = MapperRegistry.get_current_mapper('type_course').all()
 routes = {}
 
+
 # Test data.
-start_add_test_data(site)
+# start_add_test_data(site)
 
 
 @AppRoute(routes=routes, url='/')
@@ -51,43 +57,46 @@ class TypeCourses:
     @Debug(name="TypeCoursesList-create-update-delete-detail")
     def __call__(self, request):
         method = request['method'].upper()
+        mapper = MapperRegistry.get_current_mapper('type_course')
         if method == 'CREATE':
             logger.log('Creating Training types.')
             data = request['data']
             name = site.decode_value(data['name'])
-
-            new_type = site.type_course_create(name)
-            site.type_courses.append(new_type)
+            mapper.insert(name)
+            UnitOfWork.get_current().commit()
             return '200 OK', render('type_courses.html',
-                                    objects_list=site.type_courses)
+                                    objects_list=mapper.all())
 
         elif method == 'DELETE':
             logger.log('Delete Training types.')
             id = int(request['data']['id'])
-            result = site.type_course_delete(id)
+            obj = mapper.find_by_id(id)
+            mapper.delete(obj)
+            UnitOfWork.get_current().commit()
             return '200 OK', render('type_courses.html',
-                                    objects_list=result)
+                                    objects_list=mapper.all())
 
         elif method == 'UPDATE':
             logger.log('Update Training types.')
             id = int(request['data']['id'])
             name = request['data']['name']
-            print(id, name)
-            result = site.type_course_update(id, name)
+            obj = mapper.find_by_id(id)
+            obj.name = name
+            mapper.update(obj)
             return '200 OK', render('type_courses.html',
-                                    objects_list=result)
+                                    objects_list=mapper.all())
 
         elif method == 'DETAIL':
             logger.log('Detail Training types.')
             id = int(request['data']['id'])
-            result = site.type_course_detail(id)
+            result = mapper.find_by_id(id)
             return '200 OK', render('include/update_course_type.html',
                                     id=result.id, name=result.name)
 
         elif method == 'GET':
             logger.log('List of Training types.')
             return '200 OK', render('type_courses.html',
-                                    objects_list=site.type_courses)
+                                    objects_list=mapper.all())
 
 
 @AppRoute(routes=routes, url='/course-list/')
@@ -97,6 +106,8 @@ class Courses:
     @Debug(name="CoursesList-create-update-delete-detail")
     def __call__(self, request):
         method = request['method'].upper()
+        mapper_courses = MapperRegistry.get_current_mapper('course')
+        mapper_type_courses = MapperRegistry.get_current_mapper('type_course')
         if method == 'CREATE':
             logger.log('Creating Training.')
             name = request['data']['name']
@@ -104,30 +115,35 @@ class Courses:
             if 'type_course' in request['data']:
                 for i in request['data']['type_course']:
                     list_type_course.append(
-                        site.find_type_course_by_id(int(i)))
+                        mapper_type_courses.find_by_id(int(i)).id)
             name = site.decode_value(name)
-            new_course = site.create_course(name, list_type_course)
-            site.courses.append(new_course)
+            mapper_courses.insert(name, list_type_course)
+            UnitOfWork.get_current().commit()
+            # new_course = site.create_course(name, list_type_course)
+            # site.courses.append(new_course)
             return '200 OK', render('courses.html',
-                                    objects_list=site.courses,
-                                    objects_list_type_course=site.type_courses)
+                                    objects_list=mapper_courses.all(),
+                                    objects_list_type_course=mapper_type_courses.all())
 
         elif method == 'DETAIL':
             logger.log('Detail Training.')
             id = int(request['data']['id'])
-            result = site.course_detail(id)
+            result = mapper_courses.find_by_id(id)
             return '200 OK', render('include/update_course.html',
                                     id=result.id,
                                     name=result.name,
                                     type=result.type,
-                                    objects_list_type_course=site.type_courses)
+                                    objects_list_type_course=mapper_type_courses.all())
 
         elif method == 'DELETE':
             logger.log('Deleting Training.')
             id = int(request['data']['id'])
-            result = site.delete_course(id)
+            obj = mapper_courses.find_by_id(id)
+            mapper_courses.delete(obj)
+            UnitOfWork.get_current().commit()
+            # result = site.delete_course(id)
             return '200 OK', render('courses.html',
-                                    objects_list=result)
+                                    objects_list=mapper_courses.all())
 
         elif method == 'UPDATE':
             logger.log('Updating Training')
@@ -136,24 +152,18 @@ class Courses:
             type_course = request['data']['type_course']
             list_type_course = []
             for i in type_course:
-                list_type_course.append(site.find_type_course_by_id(int(i)))
-            result = site.course_update(id, name, list_type_course)
+                list_type_course.append(
+                    mapper_type_courses.find_by_id(int(i)).id)
+            mapper_courses.update(id, name, list_type_course)
+            UnitOfWork.get_current().commit()
             return '200 OK', render('courses.html',
-                                    objects_list=result)
-
-        elif method == 'COPY':
-            logger.log('Copy Training')
-            id = int(request['data']['id'])
-            new_course = site.copy_course(id)
-            site.courses.append(new_course)
-            return '200 OK', render('courses.html',
-                                    objects_list=site.courses)
+                                    objects_list=mapper_courses.all())
 
         elif method == 'GET':
             logger.log('List of courses.')
             return '200 OK', render('courses.html',
-                                    objects_list=site.courses,
-                                    objects_list_type_course=site.type_courses)
+                                    objects_list=mapper_courses.all(),
+                                    objects_list_type_course=mapper_type_courses.all())
 
 
 @AppRoute(routes=routes, url='/category-list/')

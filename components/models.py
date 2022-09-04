@@ -1,4 +1,6 @@
 import quopri
+import sqlite3
+
 from components.notification import Subject, ConsoleWriter, FileWriter
 
 
@@ -53,58 +55,21 @@ class UserFactory:
         return cls.types[type_](dict_data)
 
 
+class CourseType:
+    """Class CourseType - creates a CourseType object."""
+
+    def __init__(self, id, param):
+        self.id = id
+        self.name = param
+
+
 class Course:
     """Class Course - creates a Course object."""
 
-    auto_id = 0
-
-    def __init__(self, name, course_type):
+    def __init__(self, id, name, type):
+        self.id = id
         self.name = name
-        self.type = course_type
-        self.id = Course.auto_id
-        Course.auto_id += 1
-        super().__init__()
-
-
-class CourseType:
-    """Class CourseType - creates a CourseType object."""
-    auto_id = 0
-
-    def __init__(self, param):
-        self.name = param
-        self.id = CourseType.auto_id
-        CourseType.auto_id += 1
-
-
-# Abstract classes courses.
-class InteractiveCourse(Course):
-    pass
-
-
-class RecordCourse(Course):
-    pass
-
-
-class CourseFactory:
-    """The Abstract Factory class is a course factory."""
-
-    types = {
-        'interactive': InteractiveCourse,
-        'record': RecordCourse
-    }
-
-    @classmethod
-    def create(cls, type_, name, category):
-        """
-        The function creates the desired course class.
-
-        :param type_: str: course type - to be created,
-        :param name: str: course of category,
-        :param category: str: name of category,
-        :return: returns an object of the created class.
-        """
-
-        return cls.types[type_](name, category)
+        self.type = type
 
 
 class Category:
@@ -130,161 +95,161 @@ class Engine:
         self.categories = []
         self.type_courses = []
 
-    @staticmethod
-    def type_course(param):
-        """
-        Function for getting the course type.
-
-        :param param: str: type name,
-        :return: returns a course type object.
-        """
-
-        return CourseType(param)
-
-    def type_course_delete(self, id):
-        """
-        Deletes the course type.
-
-        :param id: id of type course,
-        :return: returns an updated list of course types.
-        """
-
-        for item in self.type_courses:
-            if item.id == id:
-                self.type_courses.pop(id)
-                return self.type_courses
-        raise Exception(f'There is no course type with id = {id}.')
-
-    def type_course_detail(self, id):
-        """
-        Detailing the course type.
-
-        :param id: id of type course,
-        :return: returns the course object.
-        """
-
-        for item in self.type_courses:
-            if item.id == id:
-                return item
-        raise Exception(f'There is no course type with id = {id}.')
-
-    def type_course_update(self, id, name):
-        """
-        Updating course type data.
-
-        :param id: id of type course,
-        :param name: str: new name of type course,
-        :return: returns an updated list of course types.
-        """
-
-        for item in self.type_courses:
-            if item.id == id:
-                item.name = name
-                return self.type_courses
-        raise Exception(f'There is no course type with id = {id}.')
-
-    def find_type_course_by_id(self, id):
-        """
-        Search for a certain type of course by id.
-
-        :param id: id of type course,
-        :return: returns the course object.
-        """
-
-        for item in self.type_courses:
-            if item.id == id:
-                return item
-        raise Exception(f'There is no course type with id = {id}.')
-
-    def type_course_create(self, name):
-        """A function that starts the creation of a type course.
-
-        :param name: str: name of type course.
-        """
-
-        return CourseType(name)
-
-    def create_course(self, name, type_):
-        """
-        A function that starts the creation of a course.
-
-        :param name: str: name of course,
-        :param type_: str: type of course.
-        """
-
-        return Course(name, type_)
-
-    def copy_course(self, id):
-        """
-        The function of copy a course by id.
-
-        :param id: id of course,
-        """
-
-        for item in self.courses:
-            if item.id == id:
-                new_name = f'Copy_{item.name}.'
-                new_type = item.type
-                return Course(new_name, new_type)
-        raise Exception(f'There is no course with id = {id}.')
-
-    def course_detail(self, id):
-        """
-        Detailing the course.
-
-        :param id: id course,
-        :return: returns the course object.
-        """
-
-        for item in self.courses:
-            if item.id == id:
-                return item
-        raise Exception(f'There is no course with id = {id}.')
-
-    def course_update(self, id, name, type_):
-        """
-        Updating course data.
-
-        :param id: id of type course,
-        :param name: str: new name of type course,
-        :param type_: list: new type of course,
-        :return: returns an updated list of course types.
-        """
-
-        for item in self.courses:
-            if item.id == id:
-                item.name = name
-                item.type = type_
-                return self.courses
-        raise Exception(f'There is no course with id = {id}.')
-
-    def delete_course(self, id):
-        """
-        The function of deleting a course by id.
-
-        :param id: id of course,
-        :return: returns list of courses.
-        """
-
-        for item in self.courses:
-            if item.id == id:
-                self.courses.pop(id)
-                return self.courses
-        raise Exception(f'There is no course with id = {id}.')
-
-    def get_course(self, name):
-        """
-        Getting a course by name.
-
-        :param name: name of course,
-        :return: returns object of course or None.
-        """
-
-        for item in self.courses:
-            if item.name == name:
-                return item
-        return None
-
+    # @staticmethod
+    # def type_course(param):
+    #     """
+    #     Function for getting the course type.
+    #
+    #     :param param: str: type name,
+    #     :return: returns a course type object.
+    #     """
+    #
+    #     return CourseType(param)
+    #
+    # def type_course_delete(self, id):
+    #     """
+    #     Deletes the course type.
+    #
+    #     :param id: id of type course,
+    #     :return: returns an updated list of course types.
+    #     """
+    #
+    #     for item in self.type_courses:
+    #         if item.id == id:
+    #             self.type_courses.pop(id)
+    #             return self.type_courses
+    #     raise Exception(f'There is no course type with id = {id}.')
+    #
+    # def type_course_detail(self, id):
+    #     """
+    #     Detailing the course type.
+    #
+    #     :param id: id of type course,
+    #     :return: returns the course object.
+    #     """
+    #
+    #     for item in self.type_courses:
+    #         if item.id == id:
+    #             return item
+    #     raise Exception(f'There is no course type with id = {id}.')
+    #
+    # def type_course_update(self, id, name):
+    #     """
+    #     Updating course type data.
+    #
+    #     :param id: id of type course,
+    #     :param name: str: new name of type course,
+    #     :return: returns an updated list of course types.
+    #     """
+    #
+    #     for item in self.type_courses:
+    #         if item.id == id:
+    #             item.name = name
+    #             return self.type_courses
+    #     raise Exception(f'There is no course type with id = {id}.')
+    #
+    # def find_type_course_by_id(self, id):
+    #     """
+    #     Search for a certain type of course by id.
+    #
+    #     :param id: id of type course,
+    #     :return: returns the course object.
+    #     """
+    #
+    #     for item in self.type_courses:
+    #         if item.id == id:
+    #             return item
+    #     raise Exception(f'There is no course type with id = {id}.')
+    #
+    # def type_course_create(self, name):
+    #     """A function that starts the creation of a type course.
+    #
+    #     :param name: str: name of type course.
+    #     """
+    #
+    #     return CourseType(name)
+    #
+    # def create_course(self, name, type_):
+    #     """
+    #     A function that starts the creation of a course.
+    #
+    #     :param name: str: name of course,
+    #     :param type_: str: type of course.
+    #     """
+    #
+    #     return Course(name, type_)
+    #
+    # def copy_course(self, id):
+    #     """
+    #     The function of copy a course by id.
+    #
+    #     :param id: id of course,
+    #     """
+    #
+    #     for item in self.courses:
+    #         if item.id == id:
+    #             new_name = f'Copy_{item.name}.'
+    #             new_type = item.type
+    #             return Course(new_name, new_type)
+    #     raise Exception(f'There is no course with id = {id}.')
+    #
+    # def course_detail(self, id):
+    #     """
+    #     Detailing the course.
+    #
+    #     :param id: id course,
+    #     :return: returns the course object.
+    #     """
+    #
+    #     for item in self.courses:
+    #         if item.id == id:
+    #             return item
+    #     raise Exception(f'There is no course with id = {id}.')
+    #
+    # def course_update(self, id, name, type_):
+    #     """
+    #     Updating course data.
+    #
+    #     :param id: id of type course,
+    #     :param name: str: new name of type course,
+    #     :param type_: list: new type of course,
+    #     :return: returns an updated list of course types.
+    #     """
+    #
+    #     for item in self.courses:
+    #         if item.id == id:
+    #             item.name = name
+    #             item.type = type_
+    #             return self.courses
+    #     raise Exception(f'There is no course with id = {id}.')
+    #
+    # def delete_course(self, id):
+    #     """
+    #     The function of deleting a course by id.
+    #
+    #     :param id: id of course,
+    #     :return: returns list of courses.
+    #     """
+    #
+    #     for item in self.courses:
+    #         if item.id == id:
+    #             self.courses.pop(id)
+    #             return self.courses
+    #     raise Exception(f'There is no course with id = {id}.')
+    #
+    # def get_course(self, name):
+    #     """
+    #     Getting a course by name.
+    #
+    #     :param name: name of course,
+    #     :return: returns object of course or None.
+    #     """
+    #
+    #     for item in self.courses:
+    #         if item.name == name:
+    #             return item
+    #     return None
+    #
     def find_course_by_id(self, id):
         """
         Search for a certain course by id.
@@ -556,3 +521,187 @@ class Logger(metaclass=SingletonByName):
     def log(self, text):
         self.writer.write(text)
         self.writer_file.write(text)
+
+
+class TypeCoursesMapper:
+
+    def __init__(self, connection):
+        self.connection = connection
+        self.cursor = connection.cursor()
+        self.table_name = 'type_course'
+
+    def all(self):
+        statement = f'SELECT * from {self.table_name}'
+        self.cursor.execute(statement)
+        result = []
+        for item in self.cursor.fetchall():
+            id, name = item
+            type_course = CourseType(id, name)
+            result.append(type_course)
+        return result
+
+    def find_by_id(self, id):
+        statement = f'SELECT id, name FROM {self.table_name} WHERE id=?'
+        self.cursor.execute(statement, (id,))
+        result = self.cursor.fetchone()
+        if result:
+            return CourseType(*result)
+        else:
+            raise RecordNotFoundException(f'Record with id={id} not found.')
+
+    def insert(self, obj_name):
+        statement = f'INSERT INTO {self.table_name} (name) VALUES (?)'
+        self.cursor.execute(statement, (obj_name,))
+        try:
+            self.connection.commit()
+        except Exception as e:
+            raise DbCommitException(e.args)
+
+    def update(self, obj):
+        statement = f'UPDATE {self.table_name} SET name=? WHERE id=?'
+        self.cursor.execute(statement, (obj.name, obj.id))
+        try:
+            self.connection.commit()
+        except Exception as e:
+            raise DbUpdateException(e.args)
+
+    def delete(self, obj):
+        statement = f'DELETE FROM {self.table_name} WHERE id=?'
+        self.cursor.execute(statement, (obj.id,))
+        try:
+            self.connection.commit()
+        except Exception as e:
+            raise DbDeleteException(e.args)
+
+
+class CoursesMapper:
+
+    def __init__(self, connection):
+        self.connection = connection
+        self.cursor = connection.cursor()
+        self.table_course = 'course'
+        self.table_type_course = 'type_course'
+        self.table_link = 'course_type_course'
+
+    def all(self):
+        statement = f'SELECT course.id, course.name, type_course.name ' \
+                    f'FROM {self.table_course} ' \
+                    f'INNER JOIN {self.table_link} ON {self.table_course}.id = {self.table_link}.course_id ' \
+                    f'INNER JOIN {self.table_type_course} ON ' \
+                    f'{self.table_link}.type_course_id = {self.table_type_course}.id ' \
+                    f'WHERE {self.table_course}.id = {self.table_link}.course_id '
+        self.cursor.execute(statement)
+        result = []
+        id_list = []
+        for item in self.cursor.fetchall():
+            if (item[0] in id_list) is False:
+                id = item[0]
+                id_list.append(id)
+                name = item[1]
+                type_ = []
+                type_.append(item[2])
+                course = Course(id, name, type_)
+                result.append(course)
+            else:
+                for i in result:
+                    if i.id == item[0]:
+                        i.type.append(item[2])
+        return result
+
+    def find_by_id(self, id):
+        statement = f'SELECT course.id, course.name, type_course.name ' \
+                    f'FROM {self.table_course} ' \
+                    f'INNER JOIN {self.table_link} ON {self.table_course}.id = {self.table_link}.course_id ' \
+                    f'INNER JOIN {self.table_type_course} ON ' \
+                    f'{self.table_link}.type_course_id = {self.table_type_course}.id ' \
+                    f'WHERE {self.table_course}.id=?'
+        self.cursor.execute(statement, (id,))
+        result = self.cursor.fetchone()
+        if result:
+            return Course(*result)
+        else:
+            raise RecordNotFoundException(f'Record with id={id} not found.')
+
+    def insert(self, name, type_list):
+        statement = f'INSERT INTO {self.table_course} (name) VALUES (?)'
+        self.cursor.execute(statement, (name,))
+        try:
+            self.connection.commit()
+        except Exception as e:
+            raise DbCommitException(e.args)
+        statement = f'SELECT id, name FROM {self.table_course} WHERE name=?'
+        id = self.cursor.execute(statement, (name,)).fetchone()[0]
+        for type in type_list:
+            statement = f'INSERT INTO {self.table_link} ' \
+                        f'(course_id, type_course_id) VALUES (?, ?)'
+            self.cursor.execute(statement, (id, type))
+            try:
+                self.connection.commit()
+            except Exception as e:
+                raise DbCommitException(e.args)
+
+    def update(self, id, name, list_type_course):
+        statement = f'DELETE FROM {self.table_course} WHERE id=?'
+        self.cursor.execute(statement, (id,))
+        statement = f'DELETE FROM {self.table_link} WHERE course_id=?'
+        self.cursor.execute(statement, (id,))
+        try:
+            self.connection.commit()
+        except Exception as e:
+            raise DbUpdateException(e.args)
+        statement = f'INSERT INTO {self.table_course} (id, name) VALUES (?, ?)'
+        self.cursor.execute(statement, (id, name))
+        try:
+            self.connection.commit()
+        except Exception as e:
+            raise DbCommitException(e.args)
+        for type in list_type_course:
+            statement = f'INSERT INTO {self.table_link} ' \
+                        f'(course_id, type_course_id) VALUES (?, ?)'
+            self.cursor.execute(statement, (id, type))
+            try:
+                self.connection.commit()
+            except Exception as e:
+                raise DbCommitException(e.args)
+
+    def delete(self, obj):
+        statement = f'DELETE FROM {self.table_course} WHERE id=?'
+        self.cursor.execute(statement, (obj.id,))
+        try:
+            self.connection.commit()
+        except Exception as e:
+            raise DbDeleteException(e.args)
+
+
+connection = sqlite3.connect('friday_framework_bd.sqlite')
+
+
+class MapperRegistry:
+    mappers = {
+        'type_course': TypeCoursesMapper,
+        'course': CoursesMapper
+    }
+
+    @staticmethod
+    def get_current_mapper(name):
+        return MapperRegistry.mappers[name](connection)
+
+
+class DbCommitException(Exception):
+    def __init__(self, message):
+        super().__init__(f'Db commit error: {message}')
+
+
+class DbUpdateException(Exception):
+    def __init__(self, message):
+        super().__init__(f'Db update error: {message}')
+
+
+class DbDeleteException(Exception):
+    def __init__(self, message):
+        super().__init__(f'Db delete error: {message}')
+
+
+class RecordNotFoundException(Exception):
+    def __init__(self, message):
+        super().__init__(f'Record not found: {message}')

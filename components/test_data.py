@@ -12,10 +12,10 @@ def add_test_data_course(site):
     video = '2'
 
     dict_course = {
-        'Python': [online, vebinar, video],
-        'Java': [online],
-        'JavaScript': [vebinar],
-        'C': [online]
+        'Основы языка Python': [online, vebinar, video],
+        'Алгоритмы и структуры данных на Python. Базовый курс': [online],
+        'Основы реляционных баз данных. MySQL': [vebinar],
+        'Linux. Рабочая станция': [online]
     }
 
     list_course = ['Основы языка Python',
@@ -77,8 +77,8 @@ def add_test_data_teachers(site):
         course = site.find_course_by_id(int(i))
         list_courses.append(course)
 
-    data = {'first_name': 'Nikolay',
-                 'last_name': 'Nagornii',
+    data = {'first_name': 'Uegene',
+                 'last_name': 'Palimov',
                  'students': site.students,
                  'courses': list_courses,
                  'email': 'email@mail.ru',
