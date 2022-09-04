@@ -1170,3 +1170,30 @@ He came to us detail- request: {'id': '0', 'method': 'detail'}
 Detail teacher.
 He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'uegene', 'last_name': 'pavlovich', 'email': 'asda@mail.ru', 'phone': '79617706556', 'students': '1'}
 Updating teachers.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+List of courses.
+List of courses.
+List of courses.
+List of Training types.
+List of categories.
+List of categories.
+List of teachers.
+List of teachers.
+List of categories.
+List of categories.
+List of categories.
+List of Training types.
+List of categories.
+Login to the main page.
+Login to the main page.
+List of courses.
+List of Training types.
+List of categories.
+List of teachers.
+List of students.
+List of teachers.
+List of courses.
+List of courses.
+List of Training types.
