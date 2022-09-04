@@ -95,160 +95,160 @@ class Engine:
         self.categories = []
         self.type_courses = []
 
-    # @staticmethod
-    # def type_course(param):
-    #     """
-    #     Function for getting the course type.
-    #
-    #     :param param: str: type name,
-    #     :return: returns a course type object.
-    #     """
-    #
-    #     return CourseType(param)
-    #
-    # def type_course_delete(self, id):
-    #     """
-    #     Deletes the course type.
-    #
-    #     :param id: id of type course,
-    #     :return: returns an updated list of course types.
-    #     """
-    #
-    #     for item in self.type_courses:
-    #         if item.id == id:
-    #             self.type_courses.pop(id)
-    #             return self.type_courses
-    #     raise Exception(f'There is no course type with id = {id}.')
-    #
-    # def type_course_detail(self, id):
-    #     """
-    #     Detailing the course type.
-    #
-    #     :param id: id of type course,
-    #     :return: returns the course object.
-    #     """
-    #
-    #     for item in self.type_courses:
-    #         if item.id == id:
-    #             return item
-    #     raise Exception(f'There is no course type with id = {id}.')
-    #
-    # def type_course_update(self, id, name):
-    #     """
-    #     Updating course type data.
-    #
-    #     :param id: id of type course,
-    #     :param name: str: new name of type course,
-    #     :return: returns an updated list of course types.
-    #     """
-    #
-    #     for item in self.type_courses:
-    #         if item.id == id:
-    #             item.name = name
-    #             return self.type_courses
-    #     raise Exception(f'There is no course type with id = {id}.')
-    #
-    # def find_type_course_by_id(self, id):
-    #     """
-    #     Search for a certain type of course by id.
-    #
-    #     :param id: id of type course,
-    #     :return: returns the course object.
-    #     """
-    #
-    #     for item in self.type_courses:
-    #         if item.id == id:
-    #             return item
-    #     raise Exception(f'There is no course type with id = {id}.')
-    #
-    # def type_course_create(self, name):
-    #     """A function that starts the creation of a type course.
-    #
-    #     :param name: str: name of type course.
-    #     """
-    #
-    #     return CourseType(name)
-    #
-    # def create_course(self, name, type_):
-    #     """
-    #     A function that starts the creation of a course.
-    #
-    #     :param name: str: name of course,
-    #     :param type_: str: type of course.
-    #     """
-    #
-    #     return Course(name, type_)
-    #
-    # def copy_course(self, id):
-    #     """
-    #     The function of copy a course by id.
-    #
-    #     :param id: id of course,
-    #     """
-    #
-    #     for item in self.courses:
-    #         if item.id == id:
-    #             new_name = f'Copy_{item.name}.'
-    #             new_type = item.type
-    #             return Course(new_name, new_type)
-    #     raise Exception(f'There is no course with id = {id}.')
-    #
-    # def course_detail(self, id):
-    #     """
-    #     Detailing the course.
-    #
-    #     :param id: id course,
-    #     :return: returns the course object.
-    #     """
-    #
-    #     for item in self.courses:
-    #         if item.id == id:
-    #             return item
-    #     raise Exception(f'There is no course with id = {id}.')
-    #
-    # def course_update(self, id, name, type_):
-    #     """
-    #     Updating course data.
-    #
-    #     :param id: id of type course,
-    #     :param name: str: new name of type course,
-    #     :param type_: list: new type of course,
-    #     :return: returns an updated list of course types.
-    #     """
-    #
-    #     for item in self.courses:
-    #         if item.id == id:
-    #             item.name = name
-    #             item.type = type_
-    #             return self.courses
-    #     raise Exception(f'There is no course with id = {id}.')
-    #
-    # def delete_course(self, id):
-    #     """
-    #     The function of deleting a course by id.
-    #
-    #     :param id: id of course,
-    #     :return: returns list of courses.
-    #     """
-    #
-    #     for item in self.courses:
-    #         if item.id == id:
-    #             self.courses.pop(id)
-    #             return self.courses
-    #     raise Exception(f'There is no course with id = {id}.')
-    #
-    # def get_course(self, name):
-    #     """
-    #     Getting a course by name.
-    #
-    #     :param name: name of course,
-    #     :return: returns object of course or None.
-    #     """
-    #
-    #     for item in self.courses:
-    #         if item.name == name:
-    #             return item
-    #     return None
+    @staticmethod
+    def type_course(param):
+        """
+        Function for getting the course type.
+
+        :param param: str: type name,
+        :return: returns a course type object.
+        """
+
+        return CourseType(param)
+
+    def type_course_delete(self, id):
+        """
+        Deletes the course type.
+
+        :param id: id of type course,
+        :return: returns an updated list of course types.
+        """
+
+        for item in self.type_courses:
+            if item.id == id:
+                self.type_courses.pop(id)
+                return self.type_courses
+        raise Exception(f'There is no course type with id = {id}.')
+
+    def type_course_detail(self, id):
+        """
+        Detailing the course type.
+
+        :param id: id of type course,
+        :return: returns the course object.
+        """
+
+        for item in self.type_courses:
+            if item.id == id:
+                return item
+        raise Exception(f'There is no course type with id = {id}.')
+
+    def type_course_update(self, id, name):
+        """
+        Updating course type data.
+
+        :param id: id of type course,
+        :param name: str: new name of type course,
+        :return: returns an updated list of course types.
+        """
+
+        for item in self.type_courses:
+            if item.id == id:
+                item.name = name
+                return self.type_courses
+        raise Exception(f'There is no course type with id = {id}.')
+
+    def find_type_course_by_id(self, id):
+        """
+        Search for a certain type of course by id.
+
+        :param id: id of type course,
+        :return: returns the course object.
+        """
+
+        for item in self.type_courses:
+            if item.id == id:
+                return item
+        raise Exception(f'There is no course type with id = {id}.')
+
+    def type_course_create(self, name):
+        """A function that starts the creation of a type course.
+
+        :param name: str: name of type course.
+        """
+
+        return CourseType(name)
+
+    def create_course(self, name, type_):
+        """
+        A function that starts the creation of a course.
+
+        :param name: str: name of course,
+        :param type_: str: type of course.
+        """
+
+        return Course(name, type_)
+
+    def copy_course(self, id):
+        """
+        The function of copy a course by id.
+
+        :param id: id of course,
+        """
+
+        for item in self.courses:
+            if item.id == id:
+                new_name = f'Copy_{item.name}.'
+                new_type = item.type
+                return Course(new_name, new_type)
+        raise Exception(f'There is no course with id = {id}.')
+
+    def course_detail(self, id):
+        """
+        Detailing the course.
+
+        :param id: id course,
+        :return: returns the course object.
+        """
+
+        for item in self.courses:
+            if item.id == id:
+                return item
+        raise Exception(f'There is no course with id = {id}.')
+
+    def course_update(self, id, name, type_):
+        """
+        Updating course data.
+
+        :param id: id of type course,
+        :param name: str: new name of type course,
+        :param type_: list: new type of course,
+        :return: returns an updated list of course types.
+        """
+
+        for item in self.courses:
+            if item.id == id:
+                item.name = name
+                item.type = type_
+                return self.courses
+        raise Exception(f'There is no course with id = {id}.')
+
+    def delete_course(self, id):
+        """
+        The function of deleting a course by id.
+
+        :param id: id of course,
+        :return: returns list of courses.
+        """
+
+        for item in self.courses:
+            if item.id == id:
+                self.courses.pop(id)
+                return self.courses
+        raise Exception(f'There is no course with id = {id}.')
+
+    def get_course(self, name):
+        """
+        Getting a course by name.
+
+        :param name: name of course,
+        :return: returns object of course or None.
+        """
+
+        for item in self.courses:
+            if item.name == name:
+                return item
+        return None
     #
     def find_course_by_id(self, id):
         """

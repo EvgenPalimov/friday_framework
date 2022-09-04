@@ -173,6 +173,7 @@ class Category:
     @Debug(name="CategoryList-create-update-delete-detail")
     def __call__(self, request):
         method = request['method'].upper()
+        mapper_courses = MapperRegistry.get_current_mapper('course')
         if method == 'CREATE':
             logger.log('Creating category.')
             name = request['data']['name']
@@ -195,7 +196,7 @@ class Category:
                                     id=result.id,
                                     name=result.name,
                                     courses=result.courses,
-                                    objects_list_courses=site.courses)
+                                    objects_list_courses=mapper_courses.all())
 
         elif method == 'DELETE':
             logger.log('Deleting category..')
@@ -222,7 +223,7 @@ class Category:
             logger.log('List of categories.')
             return '200 OK', render('category.html',
                                     objects_list=site.categories,
-                                    objects_list_courses=site.courses)
+                                    objects_list_courses=mapper_courses.all())
 
 
 @AppRoute(routes=routes, url='/students-list/')
@@ -232,6 +233,7 @@ class Students:
     @Debug(name="StudentsList-create-update-delete-detail")
     def __call__(self, request):
         method = request['method'].upper()
+        mapper_courses = MapperRegistry.get_current_mapper('course')
         if method == 'CREATE':
             logger.log('Creating student.')
             data = request['data']
@@ -251,7 +253,7 @@ class Students:
             student.add_student(site)
             return '200 OK', render('students.html',
                                     objects_list=site.students,
-                                    objects_list_courses=site.courses)
+                                    objects_list_courses=mapper_courses.all())
 
         elif method == 'DETAIL':
             logger.log('Detail student.')
@@ -264,7 +266,7 @@ class Students:
                                     age=result.age,
                                     email=result.email,
                                     phone=result.phone,
-                                    objects_list_courses=site.courses)
+                                    objects_list_courses=mapper_courses())
 
         elif method == 'DELETE':
             logger.log('Deleting student.')
@@ -296,7 +298,7 @@ class Students:
             logger.log('List of students.')
             return '200 OK', render('students.html',
                                     objects_list=site.students,
-                                    objects_list_courses=site.courses)
+                                    objects_list_courses=mapper_courses.all())
 
 
 @AppRoute(routes=routes, url='/teachers-list/')
@@ -306,6 +308,7 @@ class Teachers:
     @Debug(name="TeachersList-create-update-delete-detail")
     def __call__(self, request):
         method = request['method'].upper()
+        mapper_courses = MapperRegistry.get_current_mapper('course')
         if method == 'CREATE':
             logger.log('Creating teacher.')
             data = request['data']
@@ -333,7 +336,7 @@ class Teachers:
             return '200 OK', render('teachers.html',
                                     objects_list=site.teachers,
                                     objects_list_students=site.students,
-                                    objects_list_courses=site.courses)
+                                    objects_list_courses=mapper_courses.all())
 
         elif method == 'DETAIL':
             logger.log('Detail teacher.')
@@ -345,7 +348,7 @@ class Teachers:
                                     last_name=result.last_name,
                                     email=result.email,
                                     phone=result.phone,
-                                    objects_list_courses=site.courses,
+                                    objects_list_courses=mapper_courses.all(),
                                     objects_list_students=site.students)
 
         elif method == 'DELETE':
@@ -385,7 +388,7 @@ class Teachers:
             return '200 OK', render('teachers.html',
                                     objects_list=site.teachers,
                                     objects_list_students=site.students,
-                                    objects_list_courses=site.courses)
+                                    objects_list_courses=mapper_courses.all())
 
 
 @AppRoute(routes=routes, url='/api/')

@@ -1101,3 +1101,72 @@ List of Training types.
 List of categories.
 List of teachers.
 List of students.
+Login to the main page.
+Login to the main page.
+List of Training types.
+He came to us create- request: {'method': 'create', 'name': 'Онлайн'}
+Creating Training types.
+He came to us create- request: {'method': 'create', 'name': 'Вебинарный'}
+Creating Training types.
+He came to us create- request: {'method': 'create', 'name': 'Вебинарный'}
+Creating Training types.
+He came to us create- request: {'method': 'create', 'name': 'Видео-курс'}
+Creating Training types.
+He came to us delete- request: {'method': 'delete', 'id': '3'}
+Delete Training types.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Основы языка Python', 'type_course': '1,2'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Основы языка Python', 'type_course': '1,2'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Алгоритмы и структуры данных на Python. Базовый курс'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Алгоритмы и структуры данных на Python. Базовый курс'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Алгоритмы и структуры данных на Python. Базовый курс'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Алгоритмы и структуры данных на Python. Базовый курс'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Алгоритмы и структуры данных на Python. Базовый курс'}
+Creating Training.
+List of courses.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Алгоритмы и структуры данных на Python. Базовый курс', 'type_course': '1'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Алгоритмы и структуры данных на Python. Базовый курс', 'type_course': '1'}
+Creating Training.
+List of Training types.
+List of Training types.
+He came to us create- request: {'method': 'create', 'name': 'Онлайн'}
+Creating Training types.
+He came to us create- request: {'method': 'create', 'name': 'Онлайн'}
+Creating Training types.
+He came to us delete- request: {'method': 'delete', 'id': '2'}
+Delete Training types.
+He came to us create- request: {'method': 'create', 'name': 'Вебинарный'}
+Creating Training types.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Основы языка Python', 'type_course': '1,3'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Алгоритмы и структуры данных на Python. Базовый курс', 'type_course': '1'}
+Creating Training.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+List of categories.
+He came to us create- request: {'method': 'create', 'name': 'programing', 'courses': '1'}
+Creating category.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'uegene', 'last_name': 'pavlovich', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '1'}
+Creating teacher.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '2'}
+Creating student.
+List of teachers.
+He came to us detail- request: {'id': '0', 'method': 'detail'}
+Detail teacher.
+He came to us update- request: {'id': '0', 'method': 'update', 'first_name': 'uegene', 'last_name': 'pavlovich', 'email': 'asda@mail.ru', 'phone': '79617706556', 'students': '1'}
+Updating teachers.
