@@ -1249,3 +1249,23 @@ Creating student.
 List of teachers.
 He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '4', 'students': '1'}
 Creating teacher.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+List of courses.
+List of courses.
+Login to the about company page.
+List of courses.
+List of Training types.
+List of categories.
+List of teachers.
+List of students.
+Login to the feedback company page.
+Login to the feedback company page.
+Login to the feedback company page.
+Login to the about company page.
+Login to the main page.
