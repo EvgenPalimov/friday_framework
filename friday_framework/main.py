@@ -78,17 +78,40 @@ class Framework:
 
     @staticmethod
     def add_logger(method, data):
+        """
+        Logs the request with output to the console.
+
+        :param method: str: request method,
+        :param data: list: request data.
+        """
         logger.log(
             f'He came to us {method}- request: {Framework.decode_value(data)}')
 
     @staticmethod
     def get_content_type(file_path, content_types_map=CONTENT_TYPES_MAP):
+        """
+        A function that defines the type of content for the request.
+
+        :param file_path: str: file path or url request,
+        :param content_types_map: extension and content type matching table,
+        :return: str: returns the content type for the request
+        """
         file_name = path.basename(file_path).lower()
         extension = path.splitext(file_name)[1]
         return content_types_map.get(extension, 'text/html')
 
     @staticmethod
     def get_static(static_dir, file_path):
+        """
+        A function for reading files.
+
+        The function performs a search and reading of the file,
+        then transmits the success code and information from the file.
+
+        :param static_dir:  str: full path to the folder with static files,
+        :param file_path: str: relative path and file names,
+        :return: status code and data from the file.
+        """
         path_to_file = path.join(static_dir, file_path)
         with open(path_to_file, 'rb') as f:
             file_content = f.read()
@@ -97,6 +120,8 @@ class Framework:
 
     @staticmethod
     def decode_value(data):
+        """The function decodes data from bytes."""
+
         new_data = {}
         for k, v in data.items():
             # Обрабатываем списки пока

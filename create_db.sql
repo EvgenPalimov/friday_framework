@@ -14,18 +14,17 @@ CREATE TABLE type_course
     name VARCHAR(32)                       NOT NULL
 );
 
-
 CREATE TABLE course
 (
-    id      INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
-    name    VARCHAR(32)                       NOT NULL
+    id   INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+    name VARCHAR(32)                       NOT NULL
 );
 
 CREATE TABLE course_type_course
 (
-    course_id INTEGER NOT NULL,
-    type_course_id  INTEGER NOT NULL,
-    FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE,
+    course_id      INTEGER NOT NULL,
+    type_course_id INTEGER NOT NULL,
+    FOREIGN KEY (course_id) REFERENCES course (id) ON DELETE CASCADE,
     FOREIGN KEY (type_course_id) REFERENCES type_course (id) ON DELETE CASCADE
 );
 
@@ -37,8 +36,8 @@ CREATE TABLE student
     age        INTEGER,
     phone      VARCHAR(20)                       NOT NULL UNIQUE,
     email      VARCHAR(32)                       NOT NULL UNIQUE,
-    cource_id  INTEGER,
-    FOREIGN KEY (cource_id) REFERENCES course (id) ON DELETE SET NULL
+    course_id  INTEGER,
+    FOREIGN KEY (course_id) REFERENCES course (id) ON DELETE SET NULL
 );
 
 CREATE TABLE teacher
@@ -48,20 +47,19 @@ CREATE TABLE teacher
     last_name  VARCHAR(32)                       NOT NULL,
     phone      VARCHAR(20)                       NOT NULL UNIQUE,
     email      VARCHAR(32)                       NOT NULL UNIQUE,
-    cource_id  INTEGER,
+    course_id  INTEGER,
     student_id INTEGER,
-    FOREIGN KEY (cource_id) REFERENCES course (id) ON DELETE SET NULL,
+    FOREIGN KEY (course_id) REFERENCES course (id) ON DELETE SET NULL,
     FOREIGN KEY (student_id) REFERENCES student (id) ON DELETE SET NULL
 );
-
 
 CREATE TABLE category
 (
     id         INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
     name       VARCHAR(32)                       NOT NULL,
-    cource_id  INTEGER,
+    course_id  INTEGER,
     teacher_id INTEGER,
-    FOREIGN KEY (cource_id) REFERENCES course (id) ON DELETE SET NULL,
+    FOREIGN KEY (course_id) REFERENCES course (id) ON DELETE SET NULL,
     FOREIGN KEY (teacher_id) REFERENCES teacher (id) ON DELETE SET NULL
 );
 

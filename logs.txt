@@ -1197,3 +1197,55 @@ List of teachers.
 List of courses.
 List of courses.
 List of Training types.
+Login to the main page.
+Login to the main page.
+List of Training types.
+List of courses.
+He came to us create- request: {'method': 'create', 'name': 'Основы реляционных баз данных. MySQL', 'type_course': '1,3'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Linux. Рабочая станция', 'type_course': '1,2,3'}
+Creating Training.
+He came to us create- request: {'method': 'create', 'name': 'Linux. Рабочая станция', 'type_course': '1,2,3'}
+Creating Training.
+Login to the main page.
+Login to the main page.
+List of categories.
+List of categories.
+List of teachers.
+List of teachers.
+List of students.
+List of teachers.
+List of teachers.
+List of teachers.
+List of categories.
+List of teachers.
+List of students.
+List of teachers.
+List of teachers.
+Login to the feedback company page.
+Login to the about company page.
+List of Training types.
+Login to the main page.
+List of courses.
+List of courses.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+List of courses.
+List of courses.
+List of courses.
+List of teachers.
+List of Training types.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '2', 'students': '1'}
+Creating teacher.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '2', 'students': '1'}
+Creating teacher.
+List of students.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '4'}
+Creating student.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'age': '32', 'email': 'asda@mail.ru', 'phone': '79617706556', 'courses': '4'}
+Creating student.
+List of teachers.
+He came to us create- request: {'method': 'create', 'first_name': 'Ivan', 'last_name': 'Ivanov', 'email': 'ivan@mail.ru', 'phone': '79617706556', 'courses': '4', 'students': '1'}
+Creating teacher.

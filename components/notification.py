@@ -2,12 +2,14 @@ import jsonpickle as jsonpickle
 
 
 class Observer:
+    """Abstract class - to enable the update method."""
 
     def update(self, subject):
         pass
 
 
 class Subject:
+    """Signal class - informs users."""
 
     def __init__(self):
         self.observers = []
@@ -33,6 +35,7 @@ class SmsNotifier(Observer):
 
 
 class EmailNotifier(Observer):
+    """Class EmailNotifier - informing the user by sending email."""
 
     def update(self, subject, text, site, type_data):
         """

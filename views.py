@@ -15,9 +15,8 @@ site.courses = MapperRegistry.get_current_mapper('course').all()
 site.type_courses = MapperRegistry.get_current_mapper('type_course').all()
 routes = {}
 
-
 # Test data.
-# start_add_test_data(site)
+start_add_test_data(site)
 
 
 @AppRoute(routes=routes, url='/')
@@ -121,9 +120,8 @@ class Courses:
             UnitOfWork.get_current().commit()
             # new_course = site.create_course(name, list_type_course)
             # site.courses.append(new_course)
-            return '200 OK', render('courses.html',
-                                    objects_list=mapper_courses.all(),
-                                    objects_list_type_course=mapper_type_courses.all())
+            return '200 OK', render('courses.html', objects_list=mapper_courses.all(
+            ), objects_list_type_course=mapper_type_courses.all())
 
         elif method == 'DETAIL':
             logger.log('Detail Training.')
@@ -161,9 +159,8 @@ class Courses:
 
         elif method == 'GET':
             logger.log('List of courses.')
-            return '200 OK', render('courses.html',
-                                    objects_list=mapper_courses.all(),
-                                    objects_list_type_course=mapper_type_courses.all())
+            return '200 OK', render('courses.html', objects_list=mapper_courses.all(
+            ), objects_list_type_course=mapper_type_courses.all())
 
 
 @AppRoute(routes=routes, url='/category-list/')
@@ -400,7 +397,7 @@ class CourseApi:
             try:
                 return '200 OK', BaseSerializer(
                     site.__dict__.get(path.split('/')[2])).save()
-            except:
+            except BaseException:
                 return '200 OK', BaseSerializer("not").save()
         else:
             return '200 OK', BaseSerializer(site.courses).save()

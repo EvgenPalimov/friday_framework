@@ -2,18 +2,16 @@ import threading
 
 
 class UnitOfWork:
-
     current = threading.local()
 
-    #Waiting lists - performing actions.
+    # Waiting lists - performing actions.
     def __init__(self):
         self.new_objects = []
         self.dirty_objects = []
         self.removed_objects = []
 
-    def set_mapper_registry(self, MapperRigistry):
-        """"""
-        self.MapperRegistry = MapperRigistry
+    def set_mapper_registry(self, mapper_registry):
+        self.MapperRegistry = mapper_registry
 
     def register_new(self, obj):
         """
@@ -40,10 +38,10 @@ class UnitOfWork:
         self.removed_objects.append(obj)
 
     def commit(self):
-        '''
+        """
         A function that starts the process of adding data to the database
         and clearing the task queue.
-        '''
+        """
 
         self.insert_new()
         self.update_dirty()
@@ -80,10 +78,16 @@ class UnitOfWork:
 
 class DomainObject:
     def mark_new(self):
+        """The function adds information about data changes to the queue."""
+
         UnitOfWork.get_current().register_new(self)
 
     def mark_dirty(self):
+        """The function adds data update information to the queue."""
+
         UnitOfWork.get_current().register_dirty(self)
 
     def mark_removed(self):
+        """The function adds information about data deletion to the queue."""
+
         UnitOfWork.get_current().register_removed(self)
