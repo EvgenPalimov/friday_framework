@@ -1288,3 +1288,21 @@ List of Training types.
 List of categories.
 Login to the main page.
 Login to the main page.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+Login to the main page.
+List of courses.
+List of Training types.
+List of categories.
+List of teachers.
+Login to the main page.
+List of courses.
+He came to us detail- request: {'id': '1', 'method': 'detail'}
+Detail Training.
+List of Training types.
+List of categories.
+List of teachers.
+List of students.
+Login to the feedback company page.
